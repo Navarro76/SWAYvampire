@@ -298,7 +298,17 @@ bindsym $mod+r mode "resize"
 # Servicios esenciales (solo una vez)
 exec mako 
 exec waybar
+exec_always ~/.config/mako/scripts/mpris-notify.sh &
 #exec nm-applet --indicator
+
+
+exec_always {
+    export GTK_THEME=Adwaita-dark
+    export GTK_ICON_THEME=ePapirus-Dark
+    export XCURSOR_THEME=ePapirus
+    export XDG_CURRENT_DESKTOP=sway
+    export XDG_DATA_DIRS="$HOME/.icons:/usr/share/icons:/usr/share/pixmaps"
+}
 
 # Utilidades
 exec autotiling --splitwidth 0.9

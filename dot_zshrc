@@ -61,6 +61,12 @@ alias ls='lsd --group-dirs=first'
 alias cat='/bin/batcat --paging=never'
 alias catn='cat'
 alias catnl='batcat'
+alias ch="~/bin/chezmoi"
+alias che="~/bin/chezmoi edit"
+alias chea="~/bin/chezmoi edit --apply"
+alias chew="~/bin/chezmoi edit --watch"
+alias cha="~/bin/chezmoi add"
+alias chap="~/bin/chezmoi apply"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -118,7 +124,10 @@ function fzf-lovely(){
 
 	if [ "$1" = "h" ]; then
 		fzf -m --reverse --preview-window down:20 --preview '[[ $(file --mime {}) =~ binary ]] &&
- 	                echo {} is a binary file ||
+
+
+
+	                echo {} is a binary file ||
 	                 (bat --style=numbers --color=always {} ||
 	                  highlight -O ansi -l {} ||
 	                  coderay {} ||

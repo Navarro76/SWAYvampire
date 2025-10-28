@@ -2,17 +2,23 @@
 [{
     "output": ["Virtual-1"],
     "layer": "top", // Waybar at top layer
+    "margin-top": 5,
+    //"margin-left": 5,
+    //"margin-right": 5,
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 28, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "spacing": 8, // Gaps between modules (4px)
+    "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
+        "custom/menu",
        // "custom/sway",
        // "custom/sway-icons",
         "sway/workspaces",
        // "custom/workspaces",
         "mpris"
+       // "custom/music"
+       // "custom/cava2"
        // "cava",
        // "sway/mode",
        // "sway/scratchpad"
@@ -32,9 +38,10 @@
         "memory",
      //   "backlight",
         "pulseaudio",
-        "clock"
+        "clock",
      //   "battery",
      //   "tray"
+        "custom/power"
     ],
     // Modules configuration
     "custom/workspaces": {
@@ -106,8 +113,36 @@
         "max-length": 40,
         "all-outputs": true
     },
+    "custom/music": {
+        "format": "{icon}{}",
+        "format-icons": {
+           // "Playing": "D ", // Uncomment if not using caway
+            "Paused": "",
+            "Stopped": "&#x202d; " // This stop symbol is RTL. So &#x202d; >
+        },
+        "escape": true,
+        "tooltip": true,
+        "exec": "~/.config/waybar/caway/caway",
+        "return-type": "json",
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl previous",
+        "on-scroll-down": "playerctl next",
+        "on-click-right": "g4music",
+        "max-length": 35
+    },
+    "custom/cava2": {
+        "exec": "~/.config/waybar/cava/cava_safe.sh",
+        "return-type": "text",
+        "interval": "once",
+        "format": "{}",
+        "tooltip": false
+    },
+    "custom/cava": {
+        "format": "{}",
+        "exec": "~/.config/waybar/cava/cava2.sh"
+    },
     "cava": {
-	//        "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
+	//        "cava_config": "$XDG_CONFIG_HOME/cava/cava2.conf",
 	"framerate": 30,
 	"autosens": 1,
 	"bars": 14,
@@ -181,10 +216,20 @@
         "format": " {}"
     },
     "clock": {
-        // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": " {:%H:%M}",
-        "format-alt": " {:%d-%m-%Y}"
+        "rotate": 0,
+        "format-alt": " {:%d-%m-%Y}",
+       // "tooltip-format": "<span>{calendar}</span>",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "months": "<span color='#b16286'><b>{}</b></span>",
+                "days": "<span color='#98971a'><b>{}</b></span>",
+                "weekdays": "<span color='#689d6a'><b>{}</b></span>",
+                "today": "<span color='#f8f8f2'><b>{}</b></span>"
+            }
+        }
     },
     "cpu": {
         "format": " {usage}%",
@@ -259,10 +304,9 @@
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     },
     "custom/network": {
-        "format": " {}",
         "interval": 10,
-        "exec": "ip -4 addr show ens33 2>/dev/null | grep -oP '(?<=inet\\s)\\d+(\\.\\d+){3}' | head -1 || echo '󰖪'",
-        "on-click": "nm-connection-editor"
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/network-info.sh"
     },
     "disk": {
         "interval": 30,
@@ -270,5 +314,16 @@
 	"format": " {specific_free:0.2f} GB",
 	"unit": "GB"
        // "path": "/"
+    },
+    "custom/menu": {
+	"format": "", 
+	"on-click": "rofi -show drun",
+        "tooltip": false
+    },
+    "custom/power": {
+        "format": "",
+        "on-click": "~/.config/rofi/powermenu/type-1/executable_powermenu.sh",
+        "tooltip": false
     }
+
 }]
