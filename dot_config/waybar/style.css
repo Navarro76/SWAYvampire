@@ -57,7 +57,7 @@ button:hover {
 
 #workspaces {
     background-color: #282828;
-    border-radius: 5px;
+   /* border-radius: 5px;*/
 }
 
 
@@ -76,6 +76,10 @@ button:hover {
     border-radius: 0 5px 5px 0;
 }
 
+#workspaces button:only-child {
+    border-radius: 5px; /* aplica a los 4 bordes */
+}
+
 #workspaces button:hover {
     color: #d79921;
 }
@@ -83,8 +87,7 @@ button:hover {
 
 #workspaces button.focused {
     background-color: #665c54;
-   /* box-shadow: inset 0 -3px #ffffff; 
-    border-radius: 5px;*/
+   /* box-shadow: inset 0 -3px #ffffff; */
 }
 
 #workspaces button.urgent {
