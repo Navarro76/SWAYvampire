@@ -1,0 +1,17 @@
+# ~/.dotfiles.zsh
+# Configuración base del entorno para dotfiles
+
+# Directorio base
+export DOTFILES_PATH="$HOME/.dotfiles"
+
+# Asegurar que binarios personales estén en PATH
+case ":$PATH:" in
+    *":$DOTFILES_PATH/bin:"*) ;;
+    *) export PATH="$DOTFILES_PATH/bin:$PATH" ;;
+esac
+
+# Otras variables de entorno útiles
+export NAVI_PATHS="$DOTFILES_PATH/doc/navi"
+
+# Evitar múltiples cargas
+export ZSHENV_LOADED=1

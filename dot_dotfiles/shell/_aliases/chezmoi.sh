@@ -1,0 +1,6 @@
+alias ch="~/bin/chezmoi"
+alias che="~/bin/chezmoi edit"
+alias chea="~/bin/chezmoi edit --apply"
+alias chew="~/bin/chezmoi edit --watch"
+alias cha="~/bin/chezmoi add"
+alias chap="~/bin/chezmoi apply"

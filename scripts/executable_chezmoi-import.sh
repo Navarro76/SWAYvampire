@@ -11,12 +11,19 @@ add_file() {
   fi
 }
 
-# ========== Archivos en $HOME ==========
+# =======================
+# Archivos en $HOME
+# =======================
+
 add_file ~/.zshrc
+add_file ~/.zshenv
 add_file ~/.p10k.zsh
 add_file ~/.profile
 
-# ========== Archivos en ~/.config ==========
+
+# =======================
+# Archivos en ~/.config
+# =======================
 
 # sway
 add_file ~/.config/sway/config_backup
@@ -48,10 +55,22 @@ chmod +x ~/.config/waybar/scripts/network-ip.sh 2>/dev/null
 chmod +x ~/.config/waybar/scripts/sway-robusto.sh 2>/dev/null
 chmod +x ~/.config/waybar/scripts/volume-control.sh 2>/dev/null
 
+# mc
 add_file ~/.config/mc/ini
 add_file ~/.config/mc/panels.ini
 
+# mako-notifier
+add_file ~/.config/mako/config
+add_file ~/.config/mako/scripts/mpris-notify.sh
+add_file ~/.config/mako/scripts/mpris-notify_backup.sh
+chmod +x ~/.config/mako/scripts/mpris-notify.sh 2>/dev/null
+chmod +x ~/.config/mako/scripts/mpris-notify_backup.sh 2>/dev/null
+
+# =======================
 # Directorios completos
+# =======================
+
+# Rofi
 [ -d ~/.config/rofi ] && ~/bin/chezmoi add --recursive ~/.config/rofi
 
 # MPD y NCMPCPP
@@ -61,18 +80,35 @@ add_file ~/.mpd/mpd.conf
 add_file ~/.ncmpcpp/config
 [ -d ~/.ncmpcpp/lyrics ] && ~/bin/chezmoi add --recursive ~/.ncmpcpp/lyrics
 
+
+# =======================
 # Temas de Oh my Posh
+# =======================
+
 add_file ~/.poshthemes/amro-mod.omp.json
 add_file ~/.poshthemes/craver-mod.omp.json
 add_file ~/.poshthemes/emodipt-extend-mod.omp.json
 add_file ~/.poshthemes/kushal-mod.omp.json
 add_file ~/.poshthemes/stelbent.minimal-mod.omp.json
 
-# mako-notifier
-add_file ~/.config/mako/config
-add_file ~/.config/mako/scripts/mpris-notify.sh
-add_file ~/.config/mako/scripts/mpris-notify_backup.sh
-chmod +x ~/.config/mako/scripts/mpris-notify.sh 2>/dev/null
-chmod +x ~/.config/mako/scripts/mpris-notify_backup.sh 2>/dev/null
+
+# =======================
+# Archivos en ~/.dotfiles
+# =======================
+
+add_file ~/.dotfiles/shell/_aliases/chezmoi.sh
+add_file ~/.dotfiles/shell/_aliases/dir.sh
+add_file ~/.dotfiles/shell/_aliases/git.sh
+add_file ~/.dotfiles/shell/_aliases/utils.sh
+add_file ~/.dotfiles/shell/_functions/extractPorts.sh
+add_file ~/.dotfiles/shell/_functions/fzf-lovely.sh
+add_file ~/.dotfiles/shell/_functions/man.sh
+add_file ~/.dotfiles/shell/_functions/mkt.sh
+add_file ~/.dotfiles/shell/_functions/rmk.sh
+add_file ~/.dotfiles/shell/_functions/target.sh
+add_file ~/.dotfiles/shell/_functions/zle-keymap-select.sh
+add_file ~/.dotfiles/shell/init.sh
+chmod +x ~/.dotfiles/shell/init.sh 2>/dev/null
+
 
 echo "✔ Listo. Revisa con 'chezmoi status' o guarda con Git."

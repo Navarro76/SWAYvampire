@@ -1,0 +1,12 @@
+# settarget: guarda una IP (y opcionalmente un nombre) en ~/.config/bin/target
+
+function settarget(){
+
+	if [ $# -eq 1 ]; then
+	echo $1 > ~/.config/bin/target
+	elif [ $# -gt 2 ]; then
+	echo "settarget [IP] [NAME] | settarget [IP]"
+	else
+	echo $1 $2 > ~/.config/bin/target
+	fi
+}
