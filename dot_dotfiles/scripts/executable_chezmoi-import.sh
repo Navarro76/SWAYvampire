@@ -118,5 +118,7 @@ chmod +x ~/.dotfiles/shell/init.sh 2>/dev/null
 # Documentos martdown
 [ -d ~/.dotfiles/doc/md ] && ~/bin/chezmoi add --recursive ~/.dotfiles/doc/md
 
+# Scripts
+[ -d ~/.dotfiles/scripts ] && ~/bin/chezmoi add --recursive ~/.dotfiles/scripts
 
 echo "✔ Listo. Revisa con 'chezmoi status' o guarda con Git."
