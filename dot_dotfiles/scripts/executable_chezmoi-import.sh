@@ -11,6 +11,7 @@ add_file() {
   fi
 }
 
+
 # =======================
 # Archivos en $HOME
 # =======================
@@ -70,6 +71,7 @@ add_file ~/.config/mako/scripts/mpris-notify_backup.sh
 chmod +x ~/.config/mako/scripts/mpris-notify.sh 2>/dev/null
 chmod +x ~/.config/mako/scripts/mpris-notify_backup.sh 2>/dev/null
 
+
 # =======================
 # Directorios completos
 # =======================
@@ -83,6 +85,9 @@ add_file ~/.mpd/mpd.conf
 
 add_file ~/.ncmpcpp/config
 [ -d ~/.ncmpcpp/lyrics ] && ~/bin/chezmoi add --recursive ~/.ncmpcpp/lyrics
+
+# Zellij
+[ -d ~/.config/zellij ] && ~/bin/chezmoi add --recursive ~/.config/zellij
 
 
 # =======================
@@ -115,7 +120,7 @@ add_file ~/.dotfiles/shell/_functions/zle-keymap-select.sh
 add_file ~/.dotfiles/shell/init.sh
 chmod +x ~/.dotfiles/shell/init.sh 2>/dev/null
 
-# Documentos martdown
+# Documentos markdown
 [ -d ~/.dotfiles/doc/md ] && ~/bin/chezmoi add --recursive ~/.dotfiles/doc/md
 
 # Scripts

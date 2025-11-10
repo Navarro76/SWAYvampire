@@ -38,12 +38,23 @@ chmod +x install-zellij.sh
 # Nota: con cargo se tarda mucho en compilar.
 ```
 
+## ARCHIVO DE CONFIGURACIÓN:
+
+```bash
+# Inicio rápido:
+mkdir ~/.config/zellij
+zellij setup --dump-config > ~/.config/zellij/config.kdl
+```
+**Nota:** En la mayoría de los casos, Zellij creará automáticamente el archivo mencionado anteriormente la primera vez que se ejecute. Asegúrese de comprobar primero si existe. 
+
 ## 🎯 INSTRUCCIONES DE USO:
 
 **► INICIAR ZELLIJ:**
 
 ```bash
-zellij
+# Inicio rápido:
+mkdir ~/.config/zellij
+zellij setup --dump-config > ~/.config/zellij/config.kdl
 ```
 
 **► CONFIGURACIÓN:**

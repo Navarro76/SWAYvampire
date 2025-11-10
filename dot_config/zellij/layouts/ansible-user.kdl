@@ -1,0 +1,14 @@
+// ~/.config/zellij/layouts/ansible-user.kdl - VERSIÓN CORREGIDA
+layout {
+    pane size=1 borderless=true {
+        plugin location="tab-bar"
+    }    
+    pane name="ansible-shell" {
+        command "bash"
+        args "-c" "sudo su - ansible"
+        focus true
+    }
+    pane size=1 borderless=true {
+        plugin location="zellij:status-bar"
+    }
+}
