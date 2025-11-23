@@ -1,0 +1,28 @@
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# systemd generates mount units based on this file, see systemd.mount(5).
+# Please run 'systemctl daemon-reload' after making changes here.
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/nvme0n1p3 during installation
+UUID=379b42d5-c390-4571-ba71-b41e07dd635e /               ext4    errors=remount-ro 0       1
+# /boot was on /dev/nvme0n1p1 during installation
+UUID=347064d6-1bfe-44b9-89a7-3e8bef99806d /boot           ext4    defaults        0       2
+# /boot/efi was on /dev/nvme0n1p2 during installation
+UUID=A4F5-0BE7  /boot/efi       vfat    umask=0077      0       1
+# /home was on /dev/sda7 during installation
+UUID=4061ad62-fec9-4ddd-93f1-d5269be6d0d6 /home           ext4    defaults        0       2
+# /tmp was on /dev/sda5 during installation
+UUID=4722d805-2367-4ae1-85e4-32a1f494f1b9 /tmp            ext4    defaults        0       2
+# /var was on /dev/sda6 during installation
+UUID=b1d31482-60c6-436e-b8c3-eabb3ebfff53 /var            ext4    defaults        0       2
+
+# Data Drivers
+/dev/disk/by-id/ata-WDC_WD10JPVX-00JC3T0_WD-WXG1A178NNDL-part2 /mnt/Archivos ntfs-3g defaults,uid=1000,gid=1000,umask=0002,permissions 0 0
+/dev/disk/by-id/ata-WDC_WD20EZAZ-00GGJB0_WD-WXR1AC822LC5-part1 /mnt/Datos    ntfs-3g defaults,uid=1000,gid=1000,umask=0002,permissions 0 0
+/dev/disk/by-id/ata-ST4000DM004-2CV104_ZTT0R6BZ-part2          /mnt/Navarro  ntfs-3g defaults,uid=1000,gid=1000,umask=0002,permissions 0 0
+/dev/disk/by-id/ata-WDC_WD10EZEX-00WN4A0_WD-WCC6Y3SYY5AK-part4 /mnt/Nueva    xfs     defaults 0 0

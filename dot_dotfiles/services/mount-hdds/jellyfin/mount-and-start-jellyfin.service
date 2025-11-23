@@ -1,0 +1,13 @@
+[Unit]
+Description=Montar discos e iniciar Jellyfin
+After=local-fs.target
+Before=  # Nada, para no bloquear otros servicios
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/mount_media_disks.sh
+TimeoutSec=0
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

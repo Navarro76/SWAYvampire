@@ -1,0 +1,25 @@
+Para mostrar el inspector:
+
+$ GTK_DEBUG=interactive swaync
+
+Esto es lo que me muestra:
+
+windows:dir-ltr.background-notifications
+  scrolledwindow:dir-ltr
+    viewport:dor-ltr
+      box:dir-ltr.vertical
+        row:dir-ltr[1/1].activable.notification-row
+          revealer:dir-ltr
+            coriuserl:dir-ltr.horizontal
+              widget:dir-ltr.horizontal
+                widget:dir-ltr
+                  box:dir-ltr.vertical.notification-background
+                    overlay:dir-ltr[1/1]
+                      box:dir-ltr.notification.vertical.low
+                        scrolledwindow:dir-ltr[2/2]
+                          viewport:dir-ltr.frame
+                            buttonbox:dir-ltr.linked.horizontal
+                              button:prelight:dir-ltr[1/2].text-button.notification-action  
+
+Yo utilice button:prelight:dir-ltr[1/2].text-button.notification-action para deshabilitar el texto (icono) de los botones. 
+Tal vez utilizar otro de más arriba cómo buttonbox:dir-ltr.linked.horizontal, row:dir-ltr[1/1].activable.notification-row u otro para eliminar todo.

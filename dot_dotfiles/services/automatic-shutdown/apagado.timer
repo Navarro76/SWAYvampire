@@ -1,0 +1,13 @@
+[Unit]
+Description="Turn off the NAS server at 00:30 minutes daily"
+
+[Timer]
+#OnBootSec=5min
+#OnUnitActiveSec=24h
+#OnCalendar=Mon..Fri *-*-* 10:00:*
+#OnCalendar=Mon..Sun *-*-* 5:00:00
+OnCalendar=*-*-* 00:30:00
+Unit=apagado.service
+
+[Install]
+WantedBy=multi-user.target

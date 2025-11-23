@@ -48,6 +48,8 @@ output * bg /home/alex/Wallpaper/rosario_vampire.png fill
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+# output HDMI-A-1 resolution 1280x800
+output HDMI-A-1 resolution 1600x900
 
 ### Idle configuration
 #
@@ -263,8 +265,14 @@ bindsym $mod+r mode "resize"
     # Abrir ncmpcpp - Super + Alt + n
     bindsym $mod+$alt+n exec foot -e ncmpcpp
 
+    # Abrir rmpc - Super + Alt + r
+    bindsym $mod+$alt+r exec kitty -e rmpc --config ~/.config/rmpc/config.ron 
+
     # Abrir menú de power
     bindsym $mod+$alt+p exec ~/.config/rofi/powermenu/type-1/executable_powermenu.sh
+
+    # Toggle control center
+    # bindsym $mod+Shift+n exec swaync-client -t -sw
 
     # Special keys to adjust brightness via brightnessctl
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
@@ -295,20 +303,31 @@ bindsym $mod+r mode "resize"
 ### Autostart ###
 #################
 
+# Configurar entorno antes de iniciar aplicaciones
+# exec systemctl --user import-environment XDG_CURRENT_DESKTOP
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP DBUS_SESSION_BUS_ADDRESS
+
+# Variables de entorno específicas para waybar
+# set $XDG_CURRENT_DESKTOP sway
+
+# Cargar variables de entorno primero
+# exec_always bash -c "source ~/.config/sway/env"
+
 # Servicios esenciales (solo una vez)
 exec mako 
+# exec_always ~/.config/mako/scripts/mpris-notify.sh &
+# exec swaync
+# exec_always swaync
 exec waybar
-exec_always ~/.config/mako/scripts/mpris-notify.sh &
 #exec nm-applet --indicator
 
-
-exec_always {
-    export GTK_THEME=Adwaita-dark
-    export GTK_ICON_THEME=ePapirus-Dark
-    export XCURSOR_THEME=ePapirus
-    export XDG_CURRENT_DESKTOP=sway
-    export XDG_DATA_DIRS="$HOME/.icons:/usr/share/icons:/usr/share/pixmaps"
-}
+#exec_always {
+#    export GTK_THEME=Adwaita-dark
+#    export GTK_ICON_THEME=ePapirus-Dark
+#    export XCURSOR_THEME=ePapirus
+#    export XDG_CURRENT_DESKTOP=sway
+#    export XDG_DATA_DIRS="$HOME/.icons:/usr/share/icons:/usr/share/pixmaps"
+#}
 
 # Utilidades
 exec autotiling --splitwidth 0.9
@@ -321,6 +340,11 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 # Titulo de foot
 for_window [app_id="foot"] border pixel 1
 for_window [app_id="foot"] border radius 30px
+for_window [app_id="kitty"] border pixel 0
+for_window [app_id="kitty"] border radius 30px
+for_window [app_id="firefox"] border pixel 0
+for_window [app_id="geany"] border pixel 0
+
 #default_border pixel 1
 gaps inner 5
 gaps outer 5

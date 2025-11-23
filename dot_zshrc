@@ -107,3 +107,5 @@ bindkey "^[[1;3D" backward-word
 if command -v oh-my-posh >/dev/null 2>&1; then
     eval "$(oh-my-posh init zsh --config ~/.poshthemes/craver-mod2.omp.json)"
 fi
+
+export PATH="$HOME/.cargo/bin:$PATH"

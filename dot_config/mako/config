@@ -7,7 +7,7 @@ border-color=#6272a4
 border-size=1
 max-icon-size=48
 default-timeout=5000
-icon-path=/home/alex/.icons/ePapirus-Dark:/usr/share/icons
+icon-path=/home/alex/.icons/ePapirus-Dark/48x48/apps:/usr/share/icons
 
 [urgency=low]
 #border-color=#282a36
@@ -22,6 +22,8 @@ border-color=#98971a
 border-color=#b16286
 
 [app-name="Music Player Daemon"]
-invisible=1
+invisible=0
 #default-icon=/home/alex/.icons/ePapirus-Dark
 
+[app-name="firefox-esr"]
+invisible=0
