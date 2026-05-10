@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Puddletag (AppImage)
+GenericName=Editor de etiquetas de audio
+Comment=Editor de etiquetas tipo hoja de cálculo para archivos de audio
+Exec="/mnt/Nueva/Applications/AppImage/puddletag-2.5.0.r37.gda6fd53-1-anylinux-x86_64.AppImage" %F
+Icon=puddletag
+Terminal=false
+Type=Application
+Categories=AudioVideo;Audio;
+MimeType=audio/mpeg;audio/x-wav;audio/x-flac;audio/x-vorbis+ogg;audio/x-speex+ogg;audio/x-musepack;audio/x-tta;audio/x-aiff;audio/x-shorten;audio/x-ape;audio/x-wavpack;audio/mp4;audio/aac;

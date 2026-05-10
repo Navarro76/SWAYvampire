@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=MComix (AppImage)
+# El -- indica a la AppImage: "Lo que viene ahora es el archivo, no una opción"
+Exec=/mnt/Nueva/Applications/AppImage/MComix-3.1.1-1_JB-x86_64.AppImage -- %f
+Icon=mcomix
+Terminal=false
+Type=Application
+Categories=Graphics;Viewer;
+MimeType=application/x-cbz;application/x-cbr;application/x-cbt;application/x-cb7;

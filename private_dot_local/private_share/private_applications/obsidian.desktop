@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Obsidian (AppImage)
+GenericName=Base de conocimientos Markdown
+Exec=/mnt/Nueva/Applications/AppImage/Obsidian-1.12.4.AppImage %u
+Icon=obsidian
+Terminal=false
+Type=Application
+Categories=Office;Utility;TextEditor;
+MimeType=text/markdown;x-scheme-handler/obsidian;

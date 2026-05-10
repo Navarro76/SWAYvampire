@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Koodo Reader (AppImage)
+GenericName=Lector de libros digitales
+Exec=/mnt/Nueva/Applications/AppImage/Koodo-Reader-2.3.0-x86_64.AppImage %f
+Icon=koodo-reader
+Terminal=false
+Type=Application
+Categories=Office;Viewer;
+MimeType=x-scheme-handler/koodo-reader;application/epub+zip;application/pdf;application/x-mobipocket-ebook;application/vnd.amazon.mobi8-ebook;application/x-cbz;application/x-cbr;text/markdown;application/vnd.openxmlformats-officedocument.wordprocessingml.document;text/html;

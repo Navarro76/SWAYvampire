@@ -1,5 +1,7 @@
 # style name or JSON path (default "auto")
-style: "auto"
+#style: "tokyo-night"
+style: ~/.config/glow/themes/alex.json
+#style: "dracula"
 # mouse support (TUI-mode only)
 mouse: false
 # use pager to display markdown

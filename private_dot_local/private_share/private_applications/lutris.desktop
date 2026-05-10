@@ -1,0 +1,10 @@
+#[Desktop Entry]
+#Name=Lutris (AppImage)
+#GenericName=Plataforma de juegos
+#Exec=/mnt/Nueva/Applications/AppImage/Lutris_0.5.22-1-archimage5.0-x86_64.AppImage
+#Icon=lutris
+#Terminal=false
+#Type=Application
+#Categories=Game;
+
+# NOTA: Deshabilitado porque no lo pude hechar andar y es mejor el de flatpak

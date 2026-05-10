@@ -1,0 +1,52 @@
+for_window [app_id="foot"] border pixel 1
+for_window [app_id="foot"] border radius 30px
+
+for_window [app_id="kitty"] border pixel 0
+for_window [app_id="kitty"] border radius 30px
+
+for_window [app_id="firefox"] border pixel 0
+for_window [app_id="geany"] border pixel 0
+for_window [app_id="pcmanfm"] border pixel 0
+for_window [app_id="org.gnome.Loupe"] border pixel 0
+for_window [app_id="PBE.QOwnNotes"] border pixel 0
+for_window [app_id="com.github.johnfactotum.Foliate"] border pixel 0
+for_window [app_id="info.febvre.Komikku"] border pixel 0
+for_window [app_id="net.sourceforge.mcomix"] border pixel 0
+for_window [app_id="calibre-gui"] border pixel 0
+for_window [app_id="calibre-ebook-viewer"] border pixel 0
+for_window [app_id="calibre-ebook-edit"] border pixel 0
+for_window [app_id="qt6ct"] border pixel 0
+for_window [app_id="org.pulseaudio.pavucontrol"] border pixel 0
+for_window [app_id="mpv"] border pixel 0
+for_window [app_id="nwg-look"] border pixel 0
+for_window [app_id="fdm"] border pixel 0
+for_window [app_id="XnView"] border pixel 0
+for_window [app_id="amule"] border pixel 0
+for_window [app_id="org.qbittorrent.qBittorrent"] border pixel 0
+for_window [app_id="librewolf"] border pixel 0
+for_window [app_id="org.bunkus.mkvtoolnix-gui"] border pixel 0
+for_window [app_id="org.inkscape.Inkscape"] border pixel 0
+for_window [app_id="jamesdsp"] border pixel 0
+for_window [app_id="gnome-disks"] border pixel 0
+for_window [app_id="deadbeef"] border pixel 0
+for_window [app_id="net.lutris.Lutris"] border pixel 0
+for_window [app_id="feishin"] border pixel 0
+
+for_window [class="marktext"] border none
+for_window [class="smplayer"] border none
+for_window [class="install4j-org-jdownloader-update-launcher-JDLauncher"] border none
+for_window [class="Zettlr"] border none
+for_window [class="qt5ct"] border none
+for_window [class="obsidian"] border none
+for_window [class="ONLYOFFICE"] border none
+for_window [class="org-jdownloader-update-launcher-JDLauncher"] border none
+for_window [class="KeePassXC"] border none
+for_window [class="com-tonikelope-megabasterd-MainPanel"] border none
+for_window [class="Pcmanfm"] border none
+for_window [class="TeraBox"] border none
+for_window [class="Deadbeef"] border none
+for_window [class="deemix-gui"] border none
+
+# swaymsg -t get_tree | grep -i app_id -A3
+# swaymsg -t get_tree | grep -i jdownloader -A5
+

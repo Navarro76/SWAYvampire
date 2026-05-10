@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Murglar URL Handler
+Exec="/mnt/Nueva/Applications/AppImage/Murglar-Desktop-5.2.149-linux-x64.appimage" --deeplink=%u
+Type=Application
+Terminal=false
+NoDisplay=true
+MimeType=x-scheme-handler/murglar;

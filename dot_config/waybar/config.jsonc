@@ -32,6 +32,7 @@
      //   "idle_inhibitor",
      //   "load",
      // "wireplumber",
+        "custom/net_speed",
         "disk",
         "custom/network",
         "cpu",
@@ -40,7 +41,7 @@
         "pulseaudio",
         "clock",
      //   "battery",
-     //   "tray"
+        "tray",
         "custom/power"
     ],
     // Modules configuration
@@ -210,8 +211,9 @@
         "tooltip-format": "{app}: {title}"
     },
     "tray": {
-        "icon-size": 14,
-        "spacing": 10
+        "icon-size": 12,
+        "spacing": 10,
+        "show-passive-items": true
     },
     "load": {
         "format": " {}"
@@ -309,12 +311,17 @@
         "return-type": "json",
         "exec": "~/.config/waybar/scripts/network-info.sh"
     },
+    "custom/net_speed": {
+       "interval": 1,
+       "return-type": "json",
+       "exec": "~/.config/waybar/scripts/net-speed.sh"
+    },
     "disk": {
         "interval": 30,
         //"format": "Only {percentage_free}% remaining on {path}",
 	"format": " {specific_free:0.2f} GB",
 	"unit": "GB"
-       // "path": "/"
+       // "path": "/home/alex"
     },
     "custom/menu": {
 	"format": "", 

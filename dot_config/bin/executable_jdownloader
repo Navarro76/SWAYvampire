@@ -1,0 +1,20 @@
+#!/bin/bash
+
+JD_DIR="$HOME/jd2"
+
+# Cambiar al directorio donde sí existe JDownloader2
+cd "$JD_DIR" || {
+    echo "No se pudo entrar a $JD_DIR"
+    exit 1
+}
+
+# Variables necesarias para Wayland/Sway + Java Swing/AWT
+export _JAVA_AWT_WM_NONREPARENTING=1
+export JDK_JAVA_OPTIONS="--add-opens java.desktop/com.sun.awt=ALL-UNNAMED"
+
+# Ejecutar versión nativa si existe
+if [[ -x "./JDownloader2" ]]; then
+    exec ./JDownloader2 "$@"
+else
+    exec java -jar ./JDownloader.jar "$@"
+fi

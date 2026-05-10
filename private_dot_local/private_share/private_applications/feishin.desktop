@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Feishin (AppImage)
+GenericName=Reproductor de Música Subsonic
+Comment=Cliente moderno para servidores de música compatibles con la API de Subsonic (Navidrome)
+Exec="/mnt/Nueva/Applications/AppImage/Feishin-linux-x86_64.AppImage" --appimage-extract-and-run %U
+Icon=/mnt/Nueva/SOFTWARE/keepass-icons-main/64x64/feishin.png
+Terminal=false
+Type=Application
+Categories=AudioVideo;Audio;Player;
+MimeType=x-scheme-handler/feishin;

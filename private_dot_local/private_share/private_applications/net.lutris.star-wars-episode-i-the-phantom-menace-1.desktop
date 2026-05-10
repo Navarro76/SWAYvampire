@@ -1,0 +1,8 @@
+
+[Desktop Entry]
+Type=Application
+Name=Star Wars: Episode I – The Phantom Menace
+Icon=lutris_star-wars-episode-i-the-phantom-menace
+Exec=env LUTRIS_SKIP_INIT=1 flatpak run net.lutris.Lutris lutris:rungameid/1
+Categories=Game
+

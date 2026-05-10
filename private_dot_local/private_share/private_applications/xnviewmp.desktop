@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=XnView MP (AppImage)
+GenericName=Visualizador de imágenes
+Exec=/mnt/Nueva/Applications/AppImage/XnView_MP.glibc2.17-x86_64.AppImage %F
+Icon=xnviewmp
+Terminal=false
+Type=Application
+Categories=Graphics;Photography;
+MimeType=image/jpeg;image/png;image/gif;image/tiff;image/bmp;image/x-eps;image/webp;

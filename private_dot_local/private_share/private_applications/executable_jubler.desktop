@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Jubler
+Exec=/mnt/Nueva/Applications/AppImage/Video/Jubler-9.0.1-x86_64.AppImage %U
+TryExec=/mnt/Nueva/Applications/AppImage/Video/Jubler-9.0.1-x86_64.AppImage
+Categories=AudioVideo;Java;TextTools;AudioVideoEditing;
+Comment=Jubler is a tool to edit text-based subtitles
+Icon=jubler

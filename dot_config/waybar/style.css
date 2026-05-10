@@ -130,6 +130,7 @@ button:hover {
 
 #disk,
 #custom-network,
+#custom-net_speed,
 #memory,
 #cpu {
     padding: 0 10px;

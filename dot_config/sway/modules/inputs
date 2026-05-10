@@ -1,0 +1,19 @@
+##############
+### Inputs ###
+##############
+
+#input * {
+#    xkb_layout "es"
+#    xkb_variant ""
+#    xkb_options "grp:win_space_toggle"
+#    xkb_model "pc105"
+#}
+
+
+input * {
+    xkb_layout "es"
+    # Forzamos la variante estándar que incluye tildes
+    xkb_variant "basic" 
+    xkb_options "grp:win_space_toggle"
+    xkb_model "pc105"
+}

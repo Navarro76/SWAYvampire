@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Deemix (AppImage)
+GenericName=Descargador de música versátil
+Exec=/mnt/Nueva/Applications/AppImage/linux-x64-latest.AppImage
+Icon=/mnt/Nueva/Applications/AppImage/Iconos/deemix.png
+Terminal=false
+Type=Application
+Categories=Graphics;Design;
+MimeType=image/svg+xml;image/svg+xml-compressed;

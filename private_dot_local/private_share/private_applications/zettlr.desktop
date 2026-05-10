@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Zettlr (AppImage)
+GenericName=Editor de textos Markdown
+Comment=Editor de textos Markdown libre y gratuito
+Exec=/mnt/Nueva/Applications/AppImage/Zettlr-4.2.0-x86_64.AppImage %f
+Icon=zettlr
+Terminal=false
+Type=Application
+Categories=Office;TextEditor;Utility;
+MimeType=text/markdown;text/plain;application/x-zettlr;x-scheme-handler/zotero;

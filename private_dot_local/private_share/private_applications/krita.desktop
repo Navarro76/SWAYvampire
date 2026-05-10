@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Krita (AppImage)
+GenericName=Programa de pintura digital
+Comment=Programa de pintura digital profesional, LIBRE, gratuito y de código abierto
+Exec=/mnt/Nueva/Applications/AppImage/krita-5.2.14-x86_64.AppImage %f
+Icon=krita
+Terminal=false
+Type=Application
+Categories=Graphics;2DGraphics;RasterGraphics;
+MimeType=image/x-krita;image/png;image/jpeg;image/gif;image/tiff;image/bmp;image/webp;image/x-psd;image/x-ora;

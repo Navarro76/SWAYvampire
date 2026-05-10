@@ -1,0 +1,17 @@
+[Desktop Entry]
+Name=Murglar (AppImage)
+GenericName=Música y descargas
+Exec="/mnt/Nueva/Applications/AppImage/Murglar-Desktop-5.2.149-linux-x64.appimage" --deeplink=%u
+Icon=/mnt/Nueva/Applications/AppImage/Iconos/murglar.png
+Terminal=false
+Type=Application
+Categories=AudioVideo;Audio;
+MimeType=x-scheme-handler/deeplink;
+
+#[Desktop Entry]
+#Name=Murglar
+#Exec="/mnt/Nueva/Applications/AppImage/Murglar-Desktop-5.2.149-linux-x64.appimage" --deeplink=%u
+#Type=Application
+#Terminal=false
+#NoDisplay=true
+#MimeType=x-scheme-handler/murglar;

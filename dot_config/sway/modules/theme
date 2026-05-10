@@ -1,0 +1,8 @@
+gaps inner 5
+gaps outer 5
+smart_gaps off
+hide_edge_borders smart
+
+client.focused #6272a4 #6272a4 #000000 #fc2d2d
+client.unfocused #000000 #000000 #6272a4
+client.focused_inactive #000000 #000000 #6272a4

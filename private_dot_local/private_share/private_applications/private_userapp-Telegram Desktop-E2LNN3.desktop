@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+NoDisplay=true
+Exec=/mnt/Nueva/Applications/AppImage/Telegram_Desktop-x86_64.AppImage -workdir /home/alex/.local/share/TelegramDesktop/ -- %u
+Name=Telegram Desktop
+Comment=Definición personalizada para Telegram Desktop

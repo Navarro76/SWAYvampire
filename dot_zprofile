@@ -2,6 +2,8 @@ if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty2" ]; then
     export XDG_CURRENT_DESKTOP=sway
     export XDG_SESSION_TYPE=wayland
     export XDG_SESSION_DESKTOP=sway
+    export XDG_DATA_DIRS="/home/alex/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:$XDG_DATA_DIRS"
+    export QT_QPA_PLATFORMTHEME=qt5ct
     exec sway
 #    exec dbus-run-session -- sway
 fi

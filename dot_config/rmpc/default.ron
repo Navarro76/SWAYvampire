@@ -8,7 +8,7 @@
     format_tag_separator: " | ",
     browser_column_widths: [20, 38, 42],
     background_color: None,
-    text_color: "white",
+    text_color: None,
     header_background_color: None,
     modal_background_color: None,
     preview_label_style: (fg: "yellow"),
@@ -17,9 +17,9 @@
         active_style: (fg: "black", bg: "blue", modifiers: "Bold"),
         inactive_style: (),
     ),
-    highlighted_item_style: (fg: "blue", modifiers: "Bold"),
-    current_item_style: (fg: "black", bg: "blue", modifiers: "Bold"),
-    borders_style: (fg: "blue"),
+    highlighted_item_style: (fg: "white", modifiers: "Bold"),
+    current_item_style: (fg: "black", bg: "yellow"),
+    borders_style: (fg: "black"),
     highlight_border_style: (fg: "blue"),
     symbols: (song: "S", dir: "D", playlist: "P", marker: "M", ellipsis: "..."),
     progress_bar: (
@@ -32,30 +32,30 @@
         symbols: ["│", "█", "▲", "▼"],
         track_style: (),
         ends_style: (),
-        thumb_style: (fg: "blue"),
+        thumb_style: (fg: "black"),
     ),
     song_table_format: [
         (
-            prop: (kind: Property(Artist),
-                default: (kind: Text("Desconocido"))
+            prop: (kind: Property(Artist), style: (fg: "green"),
+                default: (kind: Text("Desconocido"), style: (fg: "green"))
             ),
             width: "20%",
         ),
         (
-            prop: (kind: Property(Title),
-                default: (kind: Text("Desconocido"))
+            prop: (kind: Property(Title), style: (fg: "yellow"),
+                default: (kind: Text("Desconocido"), style: (fg: "yellow"))
             ),
             width: "35%",
         ),
         (
-            prop: (kind: Property(Album), style: (fg: "white"),
-                default: (kind: Text("Album Desconocido"), style: (fg: "white"))
+            prop: (kind: Property(Album), style: (fg: "magenta"),
+                default: (kind: Text("Album Desconocido"), style: (fg: "magenta"))
             ),
             width: "30%",
         ),
         (
-            prop: (kind: Property(Duration),
-                default: (kind: Text("-"))
+            prop: (kind: Property(Duration), style: (fg: "black"),
+                default: (kind: Text("-"), style: (fg: "black"))
             ),
             width: "15%",
             alignment: Right,

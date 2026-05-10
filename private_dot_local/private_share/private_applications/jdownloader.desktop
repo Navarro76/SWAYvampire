@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=JDownloader 2
+Comment=Download Manager
+Exec=/home/alex/.config/bin/jdownloader
+Type=Application
+Terminal=false
+Icon=jdownloader
+Categories=Network;Utility;
+StartupNotify=false

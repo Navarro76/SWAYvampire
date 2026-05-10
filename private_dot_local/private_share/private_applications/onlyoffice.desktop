@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=OnlyOffice (AppImage)
+GenericName=Suite de Oficina
+Exec=/mnt/Nueva/Applications/AppImage/DesktopEditors-x86_64.AppImage %f
+Icon=/mnt/Nueva/Applications/AppImage/Iconos/onlyoffice2.png
+Terminal=false
+Type=Application
+Categories=Office;WordProcessor;Spreadsheet;Presentation;
+MimeType=application/vnd.openxmlformats-officedocument.wordprocessingml.document;application/x-asc-text;application/vnd.oasis.opendocument.text;application/msword;application/pdf;

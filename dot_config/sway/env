@@ -1,6 +1,9 @@
 # ~/.config/sway/env
-export GTK_THEME=Adwaita-dark
-export GTK_ICON_THEME=ePapirus-Dark
-export XCURSOR_THEME=ePapirus
-export XDG_CURRENT_DESKTOP=sway
-export XDG_DATA_DIRS="$HOME/.icons:/usr/share/icons:/usr/share/pixmaps"
+#export GTK_THEME=Adwaita-dark
+#export GTK_ICON_THEME=ePapirus-Dark
+#export XCURSOR_THEME=ePapirus
+#export XDG_CURRENT_DESKTOP=sway
+#export XDG_DATA_DIRS="$HOME/.icons:/usr/share/icons:/usr/share/pixmaps"
+#export XDG_DATA_DIRS="/home/alex/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:$XDG_DATA_DIRS"
+
+export QT_QPA_PLATFORMTHEME=qt5ct

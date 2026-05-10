@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Inkscape (AppImage)
+GenericName=Editor de gráficos vectoriales
+Exec=/mnt/Nueva/Applications/AppImage/Inkscape-ebf0e94-x86_64.AppImage
+Icon=inkscape
+Terminal=false
+Type=Application
+Categories=Graphics;Design;
+MimeType=image/svg+xml;image/svg+xml-compressed;

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=DREAMM
+Exec=env "WINEPREFIX=/home/alex/.wine" wine "C:\\\\users\\\\alex\\\\AppData\\\\Roaming\\\\Microsoft\\\\Windows\\\\Start Menu\\\\Programs\\\\DREAMM\\\\DREAMM.lnk"
+Type=Application
+StartupNotify=true
+Path=/home/alex/.wine/drive_c/users/alex/AppData/Local/Programs/DREAMM
+Icon=C910_DREAMM.0
+StartupWMClass=dreamm.exe

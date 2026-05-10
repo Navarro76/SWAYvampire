@@ -1,0 +1,30 @@
+#################
+### Autostart ###
+#################
+
+# Entorno (configurar entorno antes de iniciar aplicaciones)
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP DBUS_SESSION_BUS_ADDRESS
+
+# Notificaciones
+exec mako
+
+# Barra
+exec waybar
+
+# Tiling inteligente
+exec autotiling --splitwidth 0.9
+
+# Polkit
+exec /usr/libexec/polkit-mate-authentication-agent-1
+
+# DBus
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+# JamesDSP
+#exec jamesdsp --tray
+#exec flatpak run me.sebastiano.JamesDSP --tray
+#exec_always flatpak run me.sebastiano.JamesDSP --tray
+
+# JamesDSP (ID correcto para tu instalación)
+#exec flatpak run me.timschneeberger.jdsp4linux --tray
+exec ~/.config/bin/inicio-audio.sh

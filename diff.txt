@@ -1,0 +1,70 @@
+Qué significa esta salida del comando chezmoi diff?
+Contexto: 
+Algunos archivos .dotfiles/scripts/comprimir.sh lo renombre a : .dotfiles/scripts/comprimir_videos.sh para saber que comprimia (no sabia si usaba por ejemplo zip para comprimir archivos o ffmpeg para comprimir video). 
+
+added: .dotfiles/scripts/comprimir.sh
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+───┐
+1: │
+───┘
+│    │                                                                        │  1 │#!/bin/bash
+│    │                                                                        │  2 │
+│    │                                                                        │  3 │mkdir -p procesados
+│    │                                                                        │  4 │LOG_FILE="resultado_compresion.log"
+│    │                                                                        │  5 │
+│    │                                                                        │  6 │echo "=== Inicio de sesión: $(date) ===" >> "$LOG_FILE"
+│    │                                                                        │  7 │
+│    │                                                                        │  8 │for f in *.mkv; do
+│    │                                                                        │  9 │    # Evitar procesar archivos ya procesados o el propio script
+│    │                                                                        │ 10 │    if [[ "$f" == *"_HEVC.mkv" ]] || [ -f "procesados/${f%.mkv}_HEVC.m↴
+│    │                                                                        │    │                                                           …kv" ]; then
+│    │                                                                        │ 11 │        continue
+│    │                                                                        │ 12 │    fi
+│    │                                                                        │ 13 │
+│    │                                                                        │ 14 │    echo "------------------------------------------------"
+│    │                                                                        │ 15 │    echo "Procesando: $f" | tee -a "$LOG_FILE"
+│    │                                                                        │ 16 │    echo "------------------------------------------------"
+│    │                                                                        │ 17 │
+│    │                                                                        │ 18 │    # Ejecución de ffmpeg viendo el progreso en pantalla
+│    │                                                                        │ 19 │    # 2>&1 redirige los errores al flujo normal para que 'tee' los cap↴
+│    │                                                                        │    │                                                                  …ture
+│    │                                                                        │ 20 │    ffmpeg -i "$f" -map 0 \
+│    │                                                                        │ 21 │    -c:v libx265 -crf 20 -preset slow -pix_fmt yuv420p10le -tune anima↴
+│    │                                                                        │    │                                                                …tion \
+│    │                                                                        │ 22 │    -c:a copy -c:s copy \
+│    │                                                                        │ 23 │    "procesados/${f%.mkv}_HEVC.mkv" 2>&1 | tee -a "$LOG_FILE"
+│    │                                                                        │ 24 │
+│    │                                                                        │ 25 │    # Verificar si el archivo se creó correctamente
+│    │                                                                        │ 26 │    if [ ${PIPESTATUS[0]} -eq 0 ]; then
+│    │                                                                        │ 27 │        echo "[OK] $(date +%H:%M) - $f finalizado" >> "$LOG_FILE"
+│    │                                                                        │ 28 │    else
+│    │                                                                        │ 29 │        echo "[ERROR] $(date +%H:%M) - Falló $f" >> "$LOG_FILE"
+│    │                                                                        │ 30 │        rm -f "procesados/${f%.mkv}_HEVC.mkv"
+│    │                                                                        │ 31 │    fi
+│    │                                                                        │ 32 │done
+│    │                                                                        │ 33 │
+│    │                                                                        │ 34 │echo "=== Fin de sesión: $(date) ===" >> "$LOG_FILE"
+
+Creo que por eso muestra de cierta manera que hay archivos en .local/share/chezmoi, pero ya no estan en el origen
+Creo que esos archivos debo dejar de gestionar con chezmoi y agregar el archivo renombrado
+Pero hay otros como estos que no sé que significan, por ejemplo:
+
+.config/gtk-3.0/settings.ini (mode 100644 ⟶   100664)
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+.config/nwg-look/config (mode 100644 ⟶   100664)
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+.config/systemd (mode 40755 ⟶   40775)
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+.config/systemd/user (mode 40755 ⟶   40775)
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+.config/systemd/user/default.target.wants (mode 40755 ⟶   40775)
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+.config/xsettingsd/xsettingsd.conf (mode 100644 ⟶   100664)
+
+
