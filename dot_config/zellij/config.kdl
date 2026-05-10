@@ -336,8 +336,8 @@ theme "ao"
 // Default: "default"
 // (Requires restart)
 //
-//default_layout "compact"
-default_layout "my-layout"
+default_layout "compact"
+//default_layout "my-layout"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
@@ -352,7 +352,7 @@ default_layout "my-layout"
 //   - true (default)
 //   - false
 //
-// mouse_mode false
+// mouse_mode true
 
 // Configure the scroll back buffer size
 // This is the number of lines zellij stores for each pane in the scroll back

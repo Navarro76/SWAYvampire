@@ -1,0 +1,12 @@
+layout {
+    // Panel superior (donde trabajarás con ffmpeg)
+    pane cwd="/mnt/Nueva/Aria2"
+    
+    // Panel inferior (secundario, ocupa el 50% de la pantalla)
+    pane cwd="/mnt/Nueva/Aria2" size="50%"
+    
+    // Barra compacta al estilo tmux
+    pane size=1 borderless=true {
+        plugin location="zellij:compact-bar"
+    }
+}

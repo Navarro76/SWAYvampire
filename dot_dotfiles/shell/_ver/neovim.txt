@@ -1,0 +1,177 @@
+
+
+# MODOS
+
+**Modo Normal** (`Esc`): Es el estado por defecto. 
+Aquí no se escribe. Aquí se "navega" y se ejecutan comandos. Es como ser el capitán de un barco dando órdenes.
+
+**Modo Insertar** (`i`): Es como nano. 
+Lo que escribes aparece en pantalla. Para salir y volver a "dar órdenes", pulsa `Esc`.
+
+**Modo Visual** (`v`): Sirve para seleccionar texto (como arrastrar el ratón). 
+Una vez seleccionado, puedes copiar (`y`) o borrar (`d`).
+
+
+# SALIR
+
+En nano, para salir usas `ctrl + x`. En Neovim, eso no funciona. Grábate esto a fuego:
+
+`Esc`     Vuelve al modo **Normal** (siempre pulsa esto si estás perdido).
+`:w`      Guardar (write).
+`:q`      Salir (quit).
+`:q!`     Salir sin guardar cambios.
+
+
+# NAVEGACIÓN
+
+**Olvida las Flechas (Navegación HJKL)**. Tus dedos deben estar siempre en la fila central del teclado.
+
+`h`     Izquierda
+`j`     Abajo
+`k`     Arriba
+`l`     Derecha
+
+**¿Por qué?** Porque mientras te mueves con `hjkl`, tienes todas las demás teclas de letras listas para ejecutar 
+acciones sin mover la muñeca.
+
+**Truco de experto:** Ahora que usas `relativenumber = true`, si quieres saltar 10 líneas hacia abajo, no presiones
+j diez veces. Simplemente escribe `10j`. Verás que el número en el margen te dice exactamente a qué distancia están
+las líneas.
+
+
+# GRAMÁTICA (Neovim es un lenguaje de comandos)
+
+Aquí es donde ocurre la magia. Los comandos se forman como oraciones: **Verbo** + **Modificador** + **Objeto**.
+
+**1. Verbos:**
+
+`d`      Delete (borrar)
+`c`      Change (borrar y entrar en modo insertar)
+`y`      Yank (copiar)
+`p`      Paste (pegar)
+
+**2. Modificadores:**
+
+`i`      Inside (dentro de)
+`a`      Around (alrededor de, incluye espacios o paréntesis)
+`t`      Till (hasta encontrar la letra...)
+
+**3. Objetos:**
+
+`w`      Word (palabra)
+`s`      Sentence (oración)
+`p`      Paragraph (párrafo)
+`(` o `"`  Paréntesis o comillas
+
+**Ejemplos prácticos:**
+
+¿Quieres borrar una palabra? `dw` (Delete Word).
+¿Quieres borrar todo lo que hay dentro de unas comillas? `ci"` (Change Inside ").
+¿Quieres borrar tres líneas? `3dd` (Número 3 + comando borrar línea).
+
+
+
+# PRO
+
+**Edición "Pro" (Lo que te hará rápido)**
+
+`u`                Deshacer (Undo). El "Ctrl+Z" de Neovim.
+`Ctrl + r`         Rehacer (Redo).
+`x`                Borra el carácter bajo el cursor.
+`A` (A mayúscula)  Salta al final de la línea y entra en modo insertar. (Super útil).
+`o`                Abre una línea nueva debajo de la actual y entra en modo insertar.
+`0 (cero)`         Salta al inicio de la línea.
+`$`                Salta al final de la línea.
+`/palabra`         Busca la palabra "palabra". Pulsa `n` para ir a la siguiente aparición.
+
+
+# ARCHIVO
+
+Comandos de Archivo (La consola de abajo)
+
+Presiona `:` en modo normal para escribir:
+
+`:w`                       Guardar (Write).
+`:wq`                      Guardar y salir.
+`:q!`                      Salir sin guardar (el botón de pánico).
+`:e nombre_archivo.txt`    Abrir otro archivo sin cerrar Neovim.
+    
+# VISUAL
+
+`0`   Start of line          `k`   Up                              help v_-default               `{`     Prev empty line
+`b`   Prev Word              `l`   right                      `$`    End of line                   `}`     Next empty linex
+`B`   Prev WORD              `Q`   help v_Q-default           `%`    Matching (){}[]               `~`    Toggle case
+`c`   Change                 `r`   Replace                    `*`    help v_star-default           `a`     +around
+`d`   Delete                 `t`   Move before next char      `,`    pref ftFT                     `g`     +11 keymaps
+`e`   Next end of word       `T`   Move before prev char      `/`   Search forward                `i`     +inside
+`E`   Next end of WORD       `v`   Visual                     `;`    Next ftFT                     `z`     +1 keymap
+`f`   Move to next char      `V`   Visual Line                `<`    Indent left                   `"`   󰓱 +registers
+`F`   Move to prev char      `w`   Next word                  `>`    Indent right                  `[`     +1 keymap
+`G`   Last line              `W`   Next WORD                  `?`   Search backward               `]`     +1 keymap
+`h`   left                   `y`   Yank                       `@`    help v_@-default            `^ W`    +window
+`j`   Down                   `!`   Run program                `^`    Start of line (non ws)
+
+                                                            `ESC`  close
+
+# KEYMAPS
+
+**Ver todos tus atajos**      Escribe `:map` y presiona `Enter`. Verás una lista enorme.
+**Ver los que tú creaste:**   Escribe `:nmap <leader>` y verás los que empiezan con espacio.
+**Buscar Archivos**           Pulsa la `Barra Espaciadora`, luego la `f` y luego la `f` otra vez (rápido).
+                          **** Aparecerá una ventana flotante. Empieza a escribir. No necesitas borrar nada, solo escribe.
+                          **** Usa `Ctrl + j` o `Ctrl + k` para moverte arriba y abajo en la lista de resultados.
+                          **** Pulsa `Enter` sobre el que quieras y Neovim lo abrirá instantáneamente.
+**Buscar Texto**              Pulsa `Espacio`, luego `f`, luego `g`.
+                          **** Escribe, por ejemplo, **termguicolors**.
+                          **** Telescope te mostrará todas las líneas de todos tus archivos donde aparece esa palabra.
+                          **** A la derecha verás una previsualización del archivo.
+                          **** Pulsa `Enter` y saltarás exactamente a esa línea en ese archivo.
+**Portapapeles**              **Ojo:** Debes tener instalado un pequeño programa llamado `xclip`, `xsel` o `wl-clipboard`.
+                          **** Copia texto del navegador con `Ctrl + c` y pegalo en Neovim con `p`.
+                          **** Copia en Neovim con `y` y pega en otra app con `Ctrl + v`.
+**Dos archivos a la vez**     Presiona `Espacio + f + f` y busca un archivo. Antes de darle a `Enter`, presiona `Ctrl + v`.
+                          **** Neovim abrirá el segundo archivo en una **división vertical** para verlos ambos al mismo tiempo.
+**Borrar una línea mala**     Pulsa `dd`. 
+**Deshacer un error**         Pulsa `u`.
+**Guardar el trabajo**        Escribe `:w`.
+
+
+# PLUGINS
+
+✔ **lazy.nvim.** Un gestor de plugins moderno.
+✔ **Telescope.** Un explorador de archivos difuso.
+✔ **Treesitter.** Resaltado inteligente.
+
+**Comandos de Supervivencia con tus Plugins**
+
+`:Lazy`                    Abre el menú para ver tus plugins, actualizarlos o limpiarlos.
+`:Telescope find_files`    Busca archivos por nombre en tu proyecto (muy rápido).
+`:Telescope live_grep`     Busca texto específico dentro de todos tus archivos.
+`:TSInstall <lenguaje>`    Si vas a programar en **Python**, **JS**, etc., corre esto (ej: `:TSInstall python`).
+`:Lazy clean`              Borra lo que no sirve.
+`:Lazy sync`               Reinstala y actualiza todo.
+`nvim +Tutor`              Abre el manual interactivo integrado Neovim
+
+1. **Which-key:** Imprescindible para principiantes. Cuando presionas una tecla (como la Space que definimos como líder), 
+   te abre un pequeño menú abajo mostrándote qué opciones tienes.
+
+   **󰧞** Entra en **Modo Normal**.
+   **󰧞** Presiona la tecla `g` y espera medio segundo sin presionar nada más.
+   **󰧞** Verás que se abre un menú abajo con todas las opciones que empiezan por `g` (como `gg` para ir al inicio, `gcc` 
+   **󰧞** para comentar, etc.).
+   **󰧞** Presiona ahora `d` y espera. Te mostrará opciones como `dw` (borrar palabra), `dd` (borrar línea), etc.
+
+2. **Comment.nvim:** Para comentar líneas de código con un solo comando (usualmente gcc).
+
+   **󰧞** En **Modo Normal** (una sola línea):
+     ▪ Ponte sobre una línea y presiona `gcc`. (Se comenta/descomenta).
+     ▪ Puedes usar números: `3gcc` comentará la línea actual y las dos siguientes.  
+   **󰧞** En **Modo Visual** (varias líneas):
+     ▪ Presiona `v`, selecciona un bloque de texto con las flechas o `hjkl`.
+     ▪ Presiona `gc`. Todo el bloque se comentará de golpe.
+  
+# FIN
+
+Nada por aquí amigo
+
+#

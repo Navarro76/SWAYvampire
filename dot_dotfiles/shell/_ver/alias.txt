@@ -1,0 +1,29 @@
+
+
+ch		~/bin/chezmoi
+che		~/bin/chezmoi edit
+chea		~/bin/chezmoi edit --apply
+chew		~/bin/chezmoi edit --watch
+cha		~/bin/chezmoi add
+chap		~/bin/chezmoi apply
+ll		lsd -lh --group-dirs=first
+la		lsd -a --group-dirs=first
+l		lsd --group-dirs=first
+lla		lsd -lha --group-dirs=first
+ls		lsd --group-dirs=first
+cat		/usr/bin/batcat --paging=never
+catn		/bin/cat
+catnl		/usr/bin/bat
+gaa		git add -A
+gc		dot git commit
+gca		git add --all && git commit --amend --no-edit
+gco		git checkout
+gd		dot git pretty-diff
+gs		git status -sb
+gf		git fech --all -p
+gps		git push
+gpsf		git push --force
+gpl		git pull --rebase --autostash
+gb		git branch
+gl		dit git pretty-log
+k		kill -9

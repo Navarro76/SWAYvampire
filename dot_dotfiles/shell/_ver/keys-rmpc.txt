@@ -1,0 +1,37 @@
+
+":"			Modo comando
+","			Bajar volumen
+"s"			Detener
+"."			Subir volumen
+"<Tab>"			Siguiente pestaña
+"<Shift + Tab>"		Pestaña anterior,
+"1"			Cambiar a pestaña ("Cola"),
+"2"			Cambiar a pestaña ("Directorios"),
+"3"			Cambiar a pestaña ("Artistas"),
+"4"			Cambiar a pestaña ("Artistas del álbum"),
+"5"			Cambiar a pestaña ("Álbumes"),
+"6"			Cambiar a pestaña ("Listas de reproducción"),
+"7"			Cambiar a pestaña ("Buscar"),
+"q"			Salir,
+">"			Siguiente pista,
+"p"			Alternar pausa,
+"<"			Pista anterior,
+"f"			Ir hacia adelante,
+"z"			Alternar repetición,
+"x"			Alternar reproducción aleatoria,
+"c"			Alternar reproducción,
+"v"			Alternar reproducción individual,
+"b"			SeekBack,
+"~"			Mostrar ayuda,
+"u"			Actualizar,
+"U"			Volver a escanear,
+"I"			Mostrar información de la canción actual,
+"O"			Mostrar salidas,
+"P"			Mostrar decodificadores,
+"R"			Agregar aleatorio,
+"D"			Eliminar todo,
+"<Enter>"		Reproducir,
+"a"			Agregar a la lista de reproducción,
+"d"			Eliminar,
+"C"			Ir a la actual,
+"X"			Reproducción aleatoria,

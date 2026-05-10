@@ -1,0 +1,72 @@
+
+
+# ESTRUCTURA
+
+inventory/hosts.ini 
+roles 
+  **common** 
+    default/
+      main.yml
+    tasks/ 
+      main.yml 
+      tarea1.yml 
+      tarea2-yml 
+  **desktop** 
+    . . . 
+  **multimedia** 
+    . . . 
+  **resources** 
+    . . . 
+  **scripts** 
+    . . . 
+  **terminal** 
+    . . . 
+ansible.cfg 
+playbook.yml 
+
+
+# ROLES
+
+`common`          Instala paquetes comunes y dependencias de entorno en sistemas Debian
+`desktop`         Instala un entorno gráfico ligero con un gestor de ventanas tipo tiling (sway), barra de estado
+                (waybar) y gestor de sesiones (ly)
+`terminal`        Configura una terminal avanzada con Zsh, Neovim, tmux, y varios plugins útiles para los usuarios
+                `alex` y `root`.
+`multimedia`      configura un entorno multimedia funcional para el usuario alex, incluyendo la instalación de 
+                aplicaciones y la configuración personalizada de MPD (Music Player Daemon) como servicio de usuario.
+`resources`       Instala y configura recursos de apariencia como temas, wallpapers, fuentes y configuración de GRUB.
+`scripts`         Se encarga de instalar y configurar scripts útiles para el entorno del usuario (red, HTB, y 
+                herramientas de pentesting).
+`chezmoi`         Se encarga de instalar chezmoi y del manejo de los dotfiles.
+`flatpak`         Instala apliaciones vía flatpak
+`applications`    Instala aplicaciones vía apt
+`development`     Herramientas de compilación, desarrollo y build
+
+  
+# COMANDOS
+
+**Alias en `.bashrc`**
+
+`alias ansible-env='source ~/venvs/ansible-env/bin/activate'`
+
+**Comandos para el manejo del entorno virtual de Python**
+
+`ansible-env`       Entra al entorno virtual `ansible-env` usando el alias
+`deactivate`        Sale del entorno virtual `ansible-env`
+
+**Ejecución por rol***
+
+Debemos estar situados en `/home/ansible/ansible-project/ansible-vampire`
+
+`ansible-playbook -i inventory/hosts.ini playbook.yml --tags "common"`           Tareas rol common
+`ansible-playbook -i inventory/hosts.ini playbook.yml --tags "desktop"`          Tareas rol desktop
+`ansible-playbook -i inventory/hosts.ini playbook.yml --tags "terminal"`         Tareas rol terminal
+`ansible-playbook -i inventory/hosts.ini playbook.yml --tags "multimedia"`       Tareas rol multimedia
+`ansible-playbook -i inventory/hosts.ini playbook.yml --tags "resources"`        Tareas rol resources
+`ansible-playbook -i inventory/hosts.ini playbook.yml --tags "scripts"`          Tareas rol scripts
+`ansible-playbook -i inventory/hosts.ini playbook.yml --tags "chezmoi"`          Tareas rol chezmoi
+
+**Ejecución por tarea determinada:**
+
+`ansible-playbook -i inventory/hosts.ini playbook.yml --tags "podman_rootless"`  Solo tareas podman_rootless
+`ansible-playbook -i inventory/hosts.ini playbook.yml --tags "zellij"`           Solo tareas zellij

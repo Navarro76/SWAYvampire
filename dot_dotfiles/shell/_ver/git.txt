@@ -1,0 +1,153 @@
+
+
+# FLUJOS
+
+**Solo para el primer commit**
+
+`git init`                                   Inicializa Git en tu carpeta local (sólo para el primer commit)
+`git remote add origin [URL]`                Vincula tu carpeta local con el repositorio en GitHub
+`git add .`                                  Añade los archivos (respetando .gitignore)
+`git config --global user.name "my-name"`    Establecer nombre "Alejandro Navarro"
+`git config --global user.email "my-email"`  Establecer correo "alexnm76@gmail.com"
+`git config --global --list`                 Para conocer la configuración
+`git status`                                 Verifica el estado
+`git commit -m "mensaje"`                    Crea el commit
+`git push -u origin main`                    Subir a GitHub por primera vez (git push -u origin main)
+
+**Flujo commits posteriores**
+
+`git branch`                                 Verifica en qué rama estás
+`git add .`                                  Agrega todos los archivos
+`git status`                                 Verifica el estado (todo debería estar en verde).
+`git commit -m "Commits posteriores"`        Crea el commit
+`git push`                                   En los siguientes commits, bastará con este comando          
+
+**Flujo commits (cuando hice solo modificaciones a los archivos y no hay archivos nuevos)**
+
+`git branch`                                 Verifica en qué rama estás
+`git add -u`                                 Añade todos los cambios de archivos que ya conoces, pero ignora los archivos nuevos
+`git status`                                 Verifica el estado (Verás en verde los modificados y en rojo los nuevos)
+`git commit -m "Commits posteriores"`        Crea el commit
+`git push`                                   En los siguientes commits, bastará con este comando   
+
+# COMMITS
+
+Los Conventional Commits son una forma estandarizada de escribir mensajes de commit, muy usada en proyectos grandes porque:
+
+- Hacen más fácil leer el historial.
+- Permiten generar CHANGELOGs automáticos.
+- Ayudan a identificar si un commit es un fix, una feature, un refactor, etc.
+
+**Tipos más comunes**
+
+- `feat` → Nueva funcionalidad.
+- `fix` → Corrección de error.
+- `doc`  → Documentación.
+- `style` → Cambios de formato (indentación, espacios, etc.).
+- `refactor` → Refactorización sin cambio de comportamiento.
+- `perf` → Mejoras de rendimiento.
+- `test` → Agregar o corregir pruebas.
+- `chore` → Tareas de mantenimiento, configuración, dependencias.
+
+**Ejemplo:**
+
+`git commit -m` "feat(ansible): instala aplicaciones vía apt y flatpak" `\`
+`-m` "- Agrega aplicaciones multimedia vía Flatpak (apps, games, network, audio)
+- Agrega aplicaciones vía APT: graphics, productivity, creativity, audio_recording, system_tools, download, multimedia, gaming y security
+- Instala paquetes base de escritorio: pcmanfm, gvfs, gvfs-backends y mate-polkit
+- Instala temas para SMPlayer
+- Agrega utilidades de terminal: unrar, p7zip-full, zip, unzip y tree
+- Implementa nuevos roles: applications, development y flatpak"
+
+
+# SUBIR
+
+**Subir al repositorio en GitHub (diferentes casos)**
+
+`git branch -M main`                                   Si tu rama aún no se llama main
+`git push -u origin main`                              Primera vez que subes tu rama main
+`git push`                                             En los siguientes commits
+`git push -u origin ansible-real13-sway`               Subir de ahora en adelante a una nueva rama
+`git push origin rama-local:rama-remota`               Subir a una nueva rama solo por esta vez
+
+Ejemplo donde se sube **ansible-real13-sway** a una rama expermiental:
+
+`git push origin ansible-real13-sway:test-experiment`  
+
+- Se recomienda que la `rama-remota` sea nueva para que no exista sobreescritura de archivos existentes. 
+- Util si quieres subir tus pruebas actuales de **ansible-real13-sway** a una rama de respaldo o de pruebas sin 
+  afectar la original
+
+
+# DIFF
+
+`git diff --name-only`
+
+Es el comando más minimalista de inspección. Como su nombre indica, solo te da los nombres de los archivos 
+que tienen cambios (respecto a lo que ya está en el escenario o en el último commit).
+
+- **¿Qué hace?:** Escanea tu directorio de trabajo y te lanza una lista plana de rutas.
+- **¿Para qué sirve?:** Es ideal cuando tienes muchísimos cambios y solo quieres una "lista de compras" rápida para 
+  saber qué archivos tocaste.
+- **Lo que NO te dice:** No te dice si el cambio es de texto, de permisos, o si el archivo fue borrado. Solo dice: 
+  "Este archivo es diferente".
+
+`git diff --summary`
+
+Este es mucho más informativo para un administrador de sistemas o desarrollador, porque te da los metadatos del 
+cambio sin mostrarte el código interno.
+
+- **¿Qué hace?:** Te muestra el "qué pasó" con el archivo a nivel de sistema de archivos.
+- **¿Qué información te da?:**
+  - **mode change:** (Lo que vimos hoy). Te avisa si cambiaste los permisos (ej. de 755 a 644).
+  - **create mode / delete mode:** Te avisa si el archivo es nuevo o fue eliminado.
+  - **rename:** Si Git detecta que moviste un archivo de un lugar a otro (te dice el % de similitud).
+- **¿Para qué sirve?:** Es el comando perfecto para verificar la integridad de la estructura antes de hacer un commit, 
+  especialmente en proyectos como tus playbooks de Ansible donde los permisos de ejecución importan.
+
+
+# GITEA
+
+Crea el repositorio **ansible-vampire** en gitea. Por lo general, nace con una rama por defecto (usualmente `main`)
+No necesitas "crear la rama" manualmente en la interfaz web de Gitea; Git la creará por ti cuando lances el 
+comando desde tu terminal. URL: `http://192.168.1.5:3000/alex/ansible-vampire.git`
+
+`git remote add gitea [URL]`               Agrega el nuevo remoto (por convención se suele usar **gitea**, mientras 
+                                         que el de GitHub ya se llama **origin**.
+`git remote -v`                            Verificar los remotos para asegurarte de que Git ahora conoce ambos destinos
+
+Deberías ver algo como esto:
+
+    gitea	http://192.168.1.5:3000/alex/ansible-vampire.git (fetch)
+    gitea	http://192.168.1.5:3000/alex/ansible-vampire.git (push)
+    origin	https://github.com/Navarro76/ansible-vampire.git (fetch)
+    origin	https://github.com/Navarro76/ansible-vampire.git (push)
+    
+`git push -u origin ansible-real13-sway`   Sube la rama a Github y crea un vínculo a origin
+`git push`                                 Sube a GitHub porque es el que tiene el vínculo.
+`git push gitea ansible-real13-sway`       Sube a Gitea pero no crea ningún vínculo a gitea.
+
+**Notas:** 
+- Una rama local solo puede tener un destino predeterminado (un `-u` "upstream") a la vez.
+- El "Vínculo" es Local: Recuerda que ese -u (upstream) se guarda en la configuración de tu carpeta .git local. 
+  No afecta en nada a lo que otros vean en GitHub o Gitea, solo cambia cómo se comporta tu terminal.
+
+# AVANZADO
+
+**Truco avanzado:** Subir a ambos con un solo comando
+
+El siguiente comando agrega la URL de Gitea al remoto origin existente:
+
+  `git remote set-url --add --push origin http://192.168.1.5:3000/alex/ansible-vampire.git`
+
+Ahora cuando ejecutes el siguiente comando: 
+
+  `git push origin ansible-real13-sway`      
+
+Git enviará los datos primero a GitHub y luego a Gitea automáticamente
+
+# FIN
+
+Nada por aquí amigo
+
+

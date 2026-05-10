@@ -1,0 +1,15 @@
+
+
+Ejemplo de uso:                 python3 /mnt/Datos/Guias/scripts/mangas/crear_cbz_recursivo.py
+berserk_optimizer_crg.py        Baja el peso de los mangas (2200px, 300MB)
+cbz_cover_injector.py           Agrega una imagen de portada 
+convertir_manga                 Convierte mangas a cbz. Hace respaldo de los mangas cbr en _respaldo_cbr
+crear_cbz.py                    Crear manga cbz desde imagenes 
+crear_cbz_recursivo.py          Crear manga cbz desde imagenes que estan organizadas en carpetas
+crear_cbz_recursivo_fecha.py    Crear manga cbz desde imagenes que estan organizadas en carpetas (forzando una fecha válida)
+crop_berserk_covers.py          Obtine la portada de sobrecubiertas de 4 secciones como "000_PORTADA_REAL.jpg"
+descargar-manga.py              Descarga las imagenes de sitios online. Uso: python3 descargar-manga.py <URL>
+mover_portada.py                Mueve la segunda imagen a la primera para establecer como portada
+optimizador_comic_color.py      Mejorar color de comics/mangas antiguos que estan en color sepia
+optimizador_comic_color_v2.py   Mejorar color de comics/mangas antiguos que estan en color sepia (versión mejorada)
+recortar_portada_suelta.py      Recorta sobrecubiertas de 4 secciones de imagen suelta como "000_PORTADA_RECORTADA.jpg"

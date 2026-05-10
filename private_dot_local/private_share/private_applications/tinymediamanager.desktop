@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=tinyMediaManager
+GenericName=Gestor de Medios
+Comment=Organizador de películas y series (herramienta para Kodi/Jellyfin)
+# Usamos la ruta completa al binario
+Exec=/mnt/Nueva/Applications/Binarios/tinyMediaManager/tinyMediaManager
+# Es vital establecer la carpeta de trabajo para que encuentre sus librerías de Java
+Path=/mnt/Nueva/Applications/Binarios/tinyMediaManager/
+Icon=/mnt/Nueva/Applications/Binarios/tinyMediaManager/tmm.png
+Terminal=false
+Type=Application
+Categories=Video;AudioVideo;Database;

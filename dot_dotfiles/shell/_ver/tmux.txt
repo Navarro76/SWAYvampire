@@ -1,0 +1,19 @@
+
+
+tmux                         Iniciar nueva sesión
+tmux new -s nombre           Iniciar sesión con nombre
+tmux ls                      Listar sesiones
+tmux a                       Reconectar a última sesión
+tmux a -t nombre             Reconectar a sesión específica
+exit                         Cerrar sesión dentro de tmux
+tmux kill-session -t nombre  Cerrar sesión dentro de tmux
+Ctrl+b                       (llamado <Prefix>) va seguido de otra tecla.
+<Prefix> + %                 Dividir verticalmente
+<Prefix> + "                 Dividir horizontalmente
+<Prefix> + flechas           Cambiar entre paneles
+<Prefix> + x                 Cerrar panel actual
+<Prefix> + c                 Nueva ventana
+<Prefix> + n                 Cambiar de ventana siguiente
+<Prefix> + p                 Cambiar de ventana anterior
+<Prefix> + d                 Desconectarse (Detach)
+

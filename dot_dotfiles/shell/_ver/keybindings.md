@@ -1,0 +1,24 @@
+# APLICACIONES
+
+| Aplicación | keybinding | Descripción | 
+|------------|------------|-------------|
+| ncmpcpp | `Super + Alt + n` | Cliente de terminal popular y avanzado para el Music Player Daemon (MPD) |
+| rmpc | `Super + Alt + r` | Cliente moderno basado en TUI para MPD (Music Player Daemon) |
+| pcmanfm | Super + Alt + f | Abre pcmanfm sin modo escritorio y asegurando que no se cuelgue la sesión |
+| pcmanfm | Super + Shift + f | Mata instancias colgadas de pcmanfm |
+| firefox | Super + Alt + i | Navegador web |
+| jdownloader | Super + Alt + j | Herramienta de gestión de descargas gratuita y de código abierto |
+| menú de power | Super + Alt + p | Muestra menú para apagado de equipo |
+| MegaBasterd | Super + Alt + m | Gestor de Descargas de MEGA.NZ a gran velocidad y SIN LÍMITES |
+| Inkscape | Super + Alt + v | Editor de gráficos vectoriales de código abierto |
+| Deemix | Super + Alt + d | Descargador de música versátil |
+| Calibre | Super + Alt + c | Organiza, almacena, convierte y lee tus e-books |
+| Murglar | Super + Alt + g | Plataforma para escuchar y descargar música |
+| Lutris | Super + Alt + l | Plataforma de juegos de código abierto para Linux |
+| Onlyoffice | Super + Alt + o | Aplicación gratuita para trabajar con documentos de oficina |
+| Obsidian | Super + Alt + t | Una app para tomar notas que funciona sin conexión a internet |
+| Koodo-Reader | Super + Alt + k | Lector de libros digitales multiplataforma |
+| XnView | Super + Alt + x | Visualizador y capturador de imágenes muy completo |
+| krita | Super + Alt + h | Programa de pintura digital profesional, LIBRE, gratuito y de código abierto |
+| Zettlr | Super + Alt + z | Editor de textos Markdown libre y gratuito |
+| LibreWolf | Super + Alt + w | Navegador web de código abierto derivado de Mozilla Firefox |

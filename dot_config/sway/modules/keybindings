@@ -132,6 +132,9 @@ bindsym $mod+$alt+p exec ~/.config/rofi/powermenu/type-1/executable_powermenu.sh
 bindsym $mod+$alt+m exec ~/.config/bin/launch-megabasterd
 #bindsym $mod+$alt+m exec env DISPLAY=$DISPLAY WAYLAND_DISPLAY=$WAYLAND_DISPLAY _JAVA_AWT_WM_NONREPARENTING=1 sh -c "cd /mnt/Nueva/SOFTWARE/MegaBasterd/ && ./MegaBasterd.run"
 
+# Ejecutar tinyMediaManager
+bindsym $mod+Shift+t exec /mnt/Nueva/Applications/Binarios/tinyMediaManager/tinyMediaManager
+
 # ===================
 # ===== Flatpak =====
 # ===================
