@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=MarkText (AppImage)
+Comment=Markdown Editor nativo en Wayland
+# Reemplaza la ruta al binario. Dejamos los flags de Ozone para que abra perfecto en Sway
+Exec=/mnt/Nueva/Applications/ln/marktext --enable-features=UseOzonePlatform --ozone-platform=wayland %f
+# Si tienes un icono .png de MarkText, pon la ruta absoluta aquí. Si no, puedes usar "text-markdown"
+Icon=/mnt/Nueva/Applications/ln/Iconos/marktext.png
+Terminal=false
+Categories=Office;Development;TextEditor;
+MimeType=text/markdown;text/x-markdown;
+StartupWMClass=marktext
+Keywords=markdown;editor;notes;

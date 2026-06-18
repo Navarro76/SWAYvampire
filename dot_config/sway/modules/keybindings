@@ -69,9 +69,34 @@ bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume --limit 1.0 @DEFAULT
 bindsym --locked XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
 # Reproducir/Pausar - Controla el reproductor activo (Feishin o mpd)
-bindsym XF86AudioPlay exec playerctl play-pause
+#bindsym XF86AudioPlay exec playerctl play-pause
 
 # Pausa - Super + Alt + F10
+#bindsym $mod+$alt+XF86AudioPlay exec playerctl pause
+
+# Stop - Super + Alt + s
+#bindsym $mod+$alt+s exec playerctl stop
+#bindsym $mod+$alt+s exec mpc stop; playerctl stop
+
+# ==== MPRIS ====
+# Reproducir/Pausar - Control inteligente universal (Soporta streams de MPD, Feishin y Firefox)
+#bindsym XF86AudioPlay exec $HOME/.config/waybar/scripts/waybar-mpd.sh --toggle
+
+# Stop - Super + Alt + s (Conectado al limpiador de caché y Waybar)
+#bindsym $mod+$alt+s exec $HOME/.config/waybar/scripts/waybar-mpd.sh --stop
+
+bindsym XF86AudioPlay exec $HOME/.config/waybar/scripts/waybar-mpris-custom.sh --key-toggle
+bindsym $mod+$alt+s   exec $HOME/.config/waybar/scripts/waybar-mpris-custom.sh --key-stop
+
+# ==== CUSTOM/MPRIS ====
+
+# Reproducir/Pausar - Control inteligente universal con prioridad estricta
+#bindsym XF86AudioPlay exec $HOME/.config/waybar/scripts/waybar-mpris-custom.sh --toggle
+
+# Stop - Super + Alt + s (Detiene todo y limpia el estado phantom de DeaDBeeF)
+#bindsym $mod+$alt+s exec $HOME/.config/waybar/scripts/waybar-mpris-custom.sh --stop
+
+# Pausa estricta - Super + Alt + Tecla Play (Manda pausa universal a través de playerctl)
 bindsym $mod+$alt+XF86AudioPlay exec playerctl pause
 
 # Canción anterior - fn + F11
@@ -79,9 +104,6 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Siguiente canción - fn + F12
 bindsym XF86AudioNext exec playerctl next
-
-# Stop - Super + Alt + s
-bindsym $mod+$alt+s exec playerctl stop
 
 # Reproducir/Pausar - fn + F10
 #bindsym XF86AudioPlay exec mpc toggle
@@ -125,22 +147,26 @@ bindsym $mod+$alt+i exec "pkill -9 firefox; rm -f ~/.mozilla/firefox/trbbdhie.de
 # Abrir jdownloader - Super + Alt + j
 bindsym $mod+$alt+j exec ~/.config/bin/jdownloader
 
-# Abrir menú de power
+# Abrir menú de power - - Super + Alt + p
 bindsym $mod+$alt+p exec ~/.config/rofi/powermenu/type-1/executable_powermenu.sh
 
 # Abrir MegaBasterd - Super + Alt + m
 bindsym $mod+$alt+m exec ~/.config/bin/launch-megabasterd
 #bindsym $mod+$alt+m exec env DISPLAY=$DISPLAY WAYLAND_DISPLAY=$WAYLAND_DISPLAY _JAVA_AWT_WM_NONREPARENTING=1 sh -c "cd /mnt/Nueva/SOFTWARE/MegaBasterd/ && ./MegaBasterd.run"
 
-# Ejecutar tinyMediaManager
+# Ejecutar tinyMediaManager - - Super + Shift + t
 bindsym $mod+Shift+t exec /mnt/Nueva/Applications/Binarios/tinyMediaManager/tinyMediaManager
+
+# Abrir linkding Super + Alt + z
+bindsym $mod+Shift+z exec firefox "http://localhost:9090"
 
 # ===================
 # ===== Flatpak =====
 # ===================
 
-# Abrir Lutris - Super + Alt + l
+# Abrir Lutris - Super + Shift + l
 bindsym $mod+$alt+l exec flatpak run net.lutris.Lutris
+
 
 # ====================
 # ===== AppImage =====
@@ -184,6 +210,30 @@ bindsym $mod+$alt+w exec /mnt/Nueva/Applications/AppImage/LibreWolf.x86_64.AppIm
 
 # Abrir Feishin - Super + Shift + m
 bindsym $mod+Shift+m exec /mnt/Nueva/Applications/AppImage/Feishin-linux-x86_64.AppImage
+
+# Abrir Brave - Super + Shift + b
+bindsym $mod+Shift+b exec /mnt/Nueva/Applications/AppImage/Brave-nightly-v1.92.46-x86_64.AppImage
+
+# Abrir MarkText - Super + Shift + n
+#bindsym $mod+Shift+n exec gtk-launch marktext.desktop
+#bindsym $mod+Shift+n exec /mnt/Nueva/Applications/AppImage/marktext-linux-0.19.0.AppImage --enable-features=UseOzonePlatform --ozone-platform=wayland
+bindsym $mod+Shift+n exec /mnt/Nueva/Applications/ln/marktext --enable-features=UseOzonePlatform --ozone-platform=wayland
+
+# Abrir IPTVnator - Super + Shift + i
+#bindsym $mod+Shift+i exec gtk-launch iptvnator.desktop
+#bindsym $mod+Shift+i exec LIBVA_DRIVER_NAME=radeonsi /mnt/Nueva/Applications/AppImage/Video/iptvnator-0.21.0-linux-x86_64.AppImage
+bindsym $mod+Shift+i exec LIBVA_DRIVER_NAME=radeonsi /mnt/Nueva/Applications/ln/iptvnator
+
+# Abrir Free Download Manager - Super + Shift + d
+bindsym $mod+Shift+d exec /mnt/Nueva/Applications/ln/FDM %u
+
+########################################
+### LANZAR SCRIPTS
+########################################
+
+# Backup de KeePassXC - Super + Alt + b
+bindsym $mod+$alt+b exec /mnt/Nueva/Guias/scripts/backups/backup_kdbx.sh
+
 
 ########################################
 ### OTRAS TECLAS

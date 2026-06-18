@@ -20,6 +20,12 @@ exec /usr/libexec/polkit-mate-authentication-agent-1
 # DBus
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
+# playerctld
+exec playerctld daemon
+
+# Despertar el módulo mpris de Waybar una vez que el entorno gráfico esté listo
+exec sleep 2 && pkill -RTMIN+5 waybar
+
 # JamesDSP
 #exec jamesdsp --tray
 #exec flatpak run me.sebastiano.JamesDSP --tray

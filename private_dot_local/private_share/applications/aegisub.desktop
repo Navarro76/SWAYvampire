@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Aegisub
+GenericName=Subtitle Editor
+Comment=Create and edit subtitle files
+Exec=/mnt/Nueva/Applications/AppImage/Subtitles/aegisub-v3.3.3-x86-64.AppImage %f
+Icon=aegisub
+Terminal=false
+Type=Application
+MimeType=application/x-ass;application/x-ssa;application/x-srt;text/plain;
+Categories=AudioVideo;AudioVideoEditing;

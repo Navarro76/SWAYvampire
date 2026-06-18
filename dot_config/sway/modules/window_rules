@@ -24,6 +24,7 @@ for_window [app_id="XnView"] border pixel 0
 for_window [app_id="amule"] border pixel 0
 for_window [app_id="org.qbittorrent.qBittorrent"] border pixel 0
 for_window [app_id="librewolf"] border pixel 0
+for_window [app_id="brave-browser-nightly"] border pixel 0
 for_window [app_id="org.bunkus.mkvtoolnix-gui"] border pixel 0
 for_window [app_id="org.inkscape.Inkscape"] border pixel 0
 for_window [app_id="jamesdsp"] border pixel 0
@@ -31,6 +32,8 @@ for_window [app_id="gnome-disks"] border pixel 0
 for_window [app_id="deadbeef"] border pixel 0
 for_window [app_id="net.lutris.Lutris"] border pixel 0
 for_window [app_id="feishin"] border pixel 0
+for_window [app_id="marktext"] border pixel 0
+for_window [app_id="electron-backend"] border pixel 0
 
 for_window [class="marktext"] border none
 for_window [class="smplayer"] border none

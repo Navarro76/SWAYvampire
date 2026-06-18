@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Brave (AppImage)
+GenericName=Navegador Web
+Exec=/mnt/Nueva/Applications/AppImage/Brave-nightly-v1.92.46-x86_64.AppImage %u
+Icon=brave
+Terminal=false
+Type=Application
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;

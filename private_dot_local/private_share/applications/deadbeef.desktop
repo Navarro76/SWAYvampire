@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=DeaDBeeF
+GenericName=Music Player
+GenericName[es]=Reproductor de música
+Comment=Listen to your music collection
+Comment[es]=Escucha tu colección de música
+Exec=/mnt/Nueva/Applications/ln/deadbeef %F
+Icon=deadbeef
+Terminal=false
+Type=Application
+Categories=AudioVideo;Audio;Player;Qt;GTK;
+MimeType=audio/mpeg;audio/ogg;audio/mp4;audio/x-flac;audio/x-wav;application/ogg;
+Keywords=Music;Player;Audio;MP3;FLAC;
+StartupNotify=true

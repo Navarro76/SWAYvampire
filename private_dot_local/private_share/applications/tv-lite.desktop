@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=TV-Lite
+Comment=Reproductor de televisión IPTV nativo
+Exec=/usr/local/bin/tv-lite
+Icon=video-television
+Terminal=false
+Categories=AudioVideo;Video;Player;TV;
+Keywords=IPTV;Stream;Television;
+StartupNotify=true

@@ -1,6 +1,6 @@
-veransible() {
-    local archivo="/home/alex/.dotfiles/shell/_ver/ansible.txt"
-    local menu="MENÚ: 1:ESTRUCTURA | 2:ROLES | 3:COMANDOS | 4:ALIAS | 5: | 6: | 7: | 8: | 9:"
+versubs() {
+    local archivo="/home/alex/.dotfiles/shell/_ver/subs.txt"
+    local menu="MENÚ: 1:FFSUBSSYNC | 2:ALASS"
     local nav=" NAV: ESC:SALIR | Av/Re Pág, Shift + ↑/↓"
 
     # Creamos el header con un salto de línea real dentro de la variable
@@ -53,16 +53,16 @@ veransible() {
     }'\'''
 
     # Lanzamiento
-    eval "sed -n \"/# ESTRUCTURA/,/#/p\" \"$archivo\" | head -n -1" | eval "$RENDER" | fzf \
+    eval "sed -n \"/# FFSUBSSYNC/,/#/p\" \"$archivo\" | head -n -1" | eval "$RENDER" | fzf \
         --height 80% \
         --reverse \
         --ansi \
         --header "$HDR" \
         --prompt="Filtro: " \
-        --bind "1:reload(sed -n '/# ESTRUCTURA/,/#/p' $archivo | head -n -1 | $RENDER)" \
-        --bind "2:reload(sed -n '/# ROLES/,/#/p' $archivo | head -n -1 | $RENDER)" \
-        --bind "3:reload(sed -n '/# COMANDOS/,/#/p' $archivo | head -n -1 | $RENDER)" \
-        --bind "4:reload(sed -n '/# ALIAS/,/#/p' $archivo | head -n -1 | $RENDER)" \
+        --bind "1:reload(sed -n '/# FFSUBSSYNC/,/#/p' $archivo | head -n -1 | $RENDER)" \
+        --bind "2:reload(sed -n '/# ALASS/,/#/p' $archivo | head -n -1 | $RENDER)" \
+        --bind "3:reload(sed -n '/# FIN/,/#/p' $archivo | head -n -1 | $RENDER)" \
+        --bind "4:reload(sed -n '/# FIN/,/#/p' $archivo | head -n -1 | $RENDER)" \
         --bind "5:reload(sed -n '/# FIN/,/#/p' $archivo | head -n -1 | $RENDER)" \
         --bind "6:reload(sed -n '/# FIN/,/#/p' $archivo | head -n -1 | $RENDER)" \
         --bind "7:reload(sed -n '/# FIN/,/#/p' $archivo | head -n -1 | $RENDER)" \

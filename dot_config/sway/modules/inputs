@@ -9,11 +9,15 @@
 #    xkb_model "pc105"
 #}
 
-
 input * {
     xkb_layout "es"
     # Forzamos la variante estándar que incluye tildes
     xkb_variant "basic" 
     xkb_options "grp:win_space_toggle"
     xkb_model "pc105"
+}
+
+input "type:pointer" {
+    pointer_accel "-0.4"
+    accel_profile "flat"
 }

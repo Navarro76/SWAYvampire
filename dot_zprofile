@@ -7,3 +7,6 @@ if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty2" ]; then
     exec sway
 #    exec dbus-run-session -- sway
 fi
+
+# Created by `pipx` on 2026-05-18 15:40:15
+export PATH="$PATH:/home/alex/.local/bin"

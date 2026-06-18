@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=REAPER
+GenericName=Estación de Trabajo de Audio Digital (DAW)
+Comment=Grabación, edición, mezcla y procesamiento de audio multipista
+Exec=/mnt/Nueva/Applications/DAW/Reaper/reaper_linux_x86_64/REAPER/reaper %f
+Path=/mnt/Nueva/Applications/DAW/Reaper/reaper_linux_x86_64/REAPER/
+Icon=/mnt/Nueva/Applications/AppImage/Iconos/reaper.png
+Terminal=false
+Type=Application
+Categories=AudioVideo;Audio;AudioVideoEditing;Recording;
+MimeType=application/x-reaper-project;audio/x-wav;audio/x-flac;audio/x-audiomanifest;

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Subtitle Composer
+GenericName=Editor de Subtítulos (Qt)
+Comment=Editor de subtítulos basado en text-step para sincronización y traducción masiva
+Exec="/mnt/Nueva/Applications/AppImage/Subtitles/Subtitle_Composer-x86_64.AppImage" %f
+Icon=subtitlecomposer
+Terminal=false
+Type=Application
+Categories=AudioVideo;Video;AudioVideoEditing;
+MimeType=application/x-subrip;text/vtt;application/x-ass;application/x-ssa;

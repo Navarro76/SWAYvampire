@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Basilisk Browser
+Comment=Navegador web basado en UXP
+Exec=/mnt/Nueva/Applications/AppImage/Navegadores/basilisk/basilisk
+Icon=/mnt/Nueva/Applications/AppImage/Navegadores/basilisk/browser/icons/mozicon128.png
+Terminal=false
+Categories=Network;WebBrowser;
+Keywords=Internet;Browser;Explorer;

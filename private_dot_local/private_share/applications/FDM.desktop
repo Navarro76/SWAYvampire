@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Free Download Manager (AppImage)
+Comment=Gestor de descargas rápido y seguro
+Exec=/mnt/Nueva/Applications/ln/FDM %u
+Icon=/mnt/Nueva/Applications/ln/Iconos/FDM.png
+Terminal=false
+MimeType=x-scheme-handler/fdm;x-scheme-handler/magnet;
+Categories=Network;FileTransfer;
+StartupNotify=true

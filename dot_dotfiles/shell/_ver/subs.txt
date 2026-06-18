@@ -1,0 +1,130 @@
+
+
+# FFSUBSSYNC
+
+**INTRODUCCIÓN:**
+
+Sincronización automática agnóstica de lenguaje de subtítulos con vídeo, de manera que Los subtítulos están alineados
+con el punto de partida correcto dentro del vídeo.
+
+
+**USO:**
+
+`ffs`, `subsync` y `ffsubsync` funcionan como puntos de entrada:
+
+    ffs video.mp4 -i unsynchronized.srt -o synchronized.srt
+
+Puede haber ocasiones en las que tengas un archivo `srt` correctamente sincronizado en un idioma que desconozcas, así 
+como un archivo `srt` sin sincronizar en tu idioma nativo. En este caso, puedes usar el archivo srt correctamente 
+sincronizado directamente como referencia para la sincronización, en lugar de usar el vídeo como referencia.
+
+    ffsubsync reference.srt -i unsynchronized.srt -o synchronized.srt
+
+`ffsubsync` utiliza la extensión del archivo para decidir si realiza la detección de actividad de voz en el audio o si
+extrae directamente el habla de un archivo srt.
+
+
+**PROBLEMAS DE SINCRONIZACIÓN:**
+
+Si la sincronización falla, dispone de las siguientes soluciones:
+
+- Intenta sincronizar asumiendo velocidades de fotogramas idénticas para vídeo y subtítulos con la opción 
+  `--no-fix-framerate`;
+- Intenta usar la opción `--gss` para buscar la proporción óptima entre las velocidades de fotogramas del vídeo y los 
+  subtítulos (por defecto, solo se evalúan algunas proporciones comunes);
+- Prueba con un valor de `--max-offset-seconds` mayor que el valor predeterminado de `60`, en caso de que los 
+  subtítulos estén desincronizados en más de 60 segundos (empíricamente improbable en la práctica, pero posible).
+- Prueba con `--vad=auditok`, ya que **Auditok*+ a veces funciona mejor con audio de baja calidad que el VAD de WebRTC.
+  Auditok no detecta específicamente la voz, sino todo el audio; esta propiedad puede generar una sincronización 
+  subóptima cuando un VAD adecuado funciona bien, pero puede ser eficaz en algunos casos.
+
+
+**Si la sincronización sigue fallando, considere probar alguna de las siguientes herramientas similares:**
+
+- **scotty/subsync:** convierte voz a texto y busca morfemas de palabras coincidentes.
+- **kaegi/alass:** sincronizador de subtítulos basado en Rust con un sofisticado algoritmo de programación dinámica.
+- **tympanix/subsync:** enfoque basado en redes neuronales que optimiza directamente la alineación al realizar la 
+  detección de voz.
+- **oseiskar/autosubsync:** realiza la detección de voz con un espectrograma personalizado y regresión logística.
+- **pums974/srtsync:** enfoque similar a ffsubsync (VAD de WebRTC + FFT para maximizar la correlación cruzada de la señal).
+
+
+**VELOCIDAD:**
+
+`ffsubsync` suele tardar entre 20 y 30 segundos, dependiendo de la duración del vídeo. El paso que más tiempo consume es
+la extracción del audio sin procesar. Si ya dispone de un archivo srt de referencia correctamente sincronizado (en cuyo
+caso se puede omitir la extracción de audio), `ffsubsync` suele tardar menos de un segundo.
+
+
+**CÓMO FUNCIONA:**
+
+El algoritmo de sincronización opera en 3 pasos:
+
+1. Se discretiza tanto el flujo de audio del archivo de video como los subtítulos en ventanas de 10 ms.
+2. Para cada ventana de 10 ms, se determina si contiene voz. Esto es sencillo para los subtítulos (basta con determinar 
+   si algún subtítulo está activado durante cada ventana de tiempo); para el flujo de audio, se utiliza un detector de
+   actividad de voz (VAD) estándar, como el integrado en **WebRTC**.
+3. Ahora tenemos dos cadenas binarias: una para los subtítulos y otra para el video. Se intenta alinear estas cadenas
+   emparejando 0 con 0 y 1 con 1. Estas alineaciones se puntúan como (número de 1 de video que coinciden con 1 de 
+   subtítulo) - (número de 1 de video que coinciden con 0 de subtítulo).
+
+La alineación con la mejor puntuación del paso 3 determina cómo ajustar el desfase temporal de los subtítulos para que
+estén correctamente sincronizados con el video. Debido a que las cadenas binarias son bastante largas (millones de 
+dígitos para vídeos de más de una hora), la estrategia ingenua O(n^2) para evaluar todas las alineaciones resulta 
+inaceptable. En su lugar, aprovechamos que la evaluación de todas las alineaciones es una operación de convolución que
+puede implementarse mediante la Transformada Rápida de Fourier (FFT), lo que reduce la complejidad a O(n log n).
+
+
+# ALASS
+
+**INTRODUCCIÓN:**
+
+`alass` es una herramienta de línea de comandos para sincronizar subtítulos con películas.
+
+Puede corregir automáticamente:
+
+- desfases constantes
+- divisiones debidas a pausas publicitarias, versiones del director, etc.
+- diferentes velocidades de fotogramas
+
+El proceso de alineación no solo es rápido y preciso, sino también independiente del idioma. Esto significa que puedes
+alinear subtítulos con películas en diferentes idiomas.
+
+`alas` significa "Sincronización Automática de Subtítulos Independiente del Idioma". La teoría y los algoritmos están
+documentados en mi tesis de licenciatura y resumidos en mi presentación de fin de carrera.
+
+
+**USOS:**
+
+Comando básico:
+
+    alass movie.mp4 incorrect_subtitle.srt output.srt
+
+También puedes usar alass para alinear el subtítulo incorrecto con un subtítulo diferente:
+
+    alass reference_subtitle.ssa incorrect_subtitle.srt output.srt
+
+Además, puedes ajustar cuánto intenta el algoritmo evitar introducir o eliminar una interrupción:
+
+    alass reference_subtitle.ssa incorrect_subtitle.srt output.srt --split-penalty 10
+
+`split-penalty` es un valor entre 0 y 1000 (valor predeterminado: 7)
+
+Los valores entre 5 y 20 son los más útiles. Cualquier valor superior a 20 omite algunas divisiones importantes, y 
+cualquier valor inferior a 5 introduce muchas divisiones innecesarias.
+
+Si solo desea desplazar el subtítulo, sin introducir divisiones, puede usar `--no-splits`:
+
+   # La sincronización de los subtítulos en este modo es muy rápida.
+    alass movie.mp4 incorrect_subtitle.srt output.srt --no-splits`
+
+Actualmente, se admiten los formatos `.srt`, `.ssa/.ass` y `.idx`. Para el archivo de referencia, se admiten todos 
+los formatos de vídeo comunes.
+
+
+# FIN
+
+Nada por aquí amigo
+
+#
+

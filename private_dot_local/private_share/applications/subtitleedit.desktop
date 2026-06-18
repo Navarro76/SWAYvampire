@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Subtitle Edit
+GenericName=Editor de Subtítulos
+Comment=Editor avanzado de subtítulos para sincronización y maquetación (typesetting)
+Exec=/mnt/Nueva/Applications/AppImage/Subtitles/SubtitleEdit/SubtitleEdit %f
+Path=/mnt/Nueva/Applications/AppImage/Subtitles/SubtitleEdit/
+Icon=/mnt/Nueva/Applications/AppImage/Iconos/Subtitleedit.svg
+Terminal=false
+Type=Application
+Categories=AudioVideo;Video;AudioVideoEditing;
+MimeType=application/x-subrip;text/vtt;application/x-ass;application/x-ssa;

@@ -249,6 +249,32 @@ label:focus {
 }*/
 
 
+/* Estado base para el módulo de música y carga */
+#custom-mpris {
+    padding: 0 10px;
+    background-color: #282828;
+    color: #ebdbb2;
+    transition: all 0.2s ease; /* Transición suave opcional para los cambios de estado */
+}
+
+/* Cuando DeaDBeeF, MPD o cualquier app está reproduciendo (Fondo Verde Gruvbox) */
+#custom-mpris.playing {
+    background-color: #98971a;
+    color: #282828;
+}
+
+/* Si quieres un color diferente cuando está en PAUSA (por ejemplo, el Amarillo Gruvbox) */
+#custom-mpris.paused {
+    background-color: #282828;
+    color: #ebdbb2;
+}
+
+/* Cuando está DETENIDO (Mantiene el bloque sólido con texto sutil, evitando el colapso) */
+#custom-mpris.stopped {
+    background-color: #282828;
+    color: #ebdbb2; /* Gris mutado de Gruvbox para indicar inactividad */
+}
+
 #tray menu {
     font-family: sans-serif;
 }
@@ -275,4 +301,3 @@ label:focus {
     color: #282828;
     border-radius: 5px;
 }
-

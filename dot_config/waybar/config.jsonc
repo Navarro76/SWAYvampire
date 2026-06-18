@@ -16,7 +16,9 @@
        // "custom/sway-icons",
         "sway/workspaces",
        // "custom/workspaces",
-        "mpris"
+       // "custom/mpd"
+       // "mpris"
+        "custom/mpris"  
        // "custom/music"
        // "custom/cava2"
        // "cava",
@@ -161,25 +163,57 @@
 	    "on-click-right": "mode"
 	}
     },
+//    "mpris": {
+//        "format": "{player_icon} {status_icon} {dynamic}",
+//        "format-paused": "{player_icon} {status_icon} <i>{dynamic}</i>",
+//        "format-stopped": "{player_icon} <i>Detenido</i>",
+//        "interval": 1,
+//        "dynamic-len": 40,
+//        "player-name": "mpd,firefox",
+//        "player-icons": {
+//            "default": " ",
+//            "mpd": " "
+//        },
+//        "status-icons": {
+//            "playing": "",
+//            "paused": "",
+//            "stopped": ""
+//        },
+//        "dynamic-order": ["title", "artist", "album"]
+//    },
     "mpris": {
-	"format": "{player_icon} {status_icon} {dynamic}",
-//        "format": "{status_icon} {dynamic}",
+        "format": "  Music Is Live",
+        "format-playing": "{player_icon} {status_icon} {dynamic}",
         "format-paused": "{player_icon} {status_icon} <i>{dynamic}</i>",
-        "format-stopped": "",
-        "interval": 1,
         "dynamic-len": 40,
-        "player-name": "mpd,spotify,chromium",
+        "player-name": "mpd,firefox,chromium,vlc",
         "player-icons": {
             "default": " ",
             "mpd": " "
         },
         "status-icons": {
             "playing": "",
-            "paused": "",
-            "stopped": ""
+            "paused": ""
         },
-        "dynamic-order": ["title", "artist", "album"]
-//        "ignored-players": ["firefox.instance_1_51"]
+        "dynamic-order": ["title", "artist"],
+        "on-click": "$HOME/.config/waybar/scripts/waybar-mpd.sh --toggle >/dev/null 2>&1 &",
+        "on-scroll-up": "playerctl next >/dev/null 2>&1 &",
+        "on-scroll-down": "playerctl previous >/dev/null 2>&1 &",
+        "signal": 5
+    },
+    "custom/mpris": {
+        "exec": "$HOME/.config/waybar/scripts/waybar-mpris-custom.sh",
+        "return-type": "json",
+        "interval": 1,
+        //"on-click": "$HOME/.config/waybar/scripts/waybar-mpris-custom.sh --toggle",
+        //"on-click-right": "$HOME/.config/waybar/scripts/waybar-mpris-custom.sh --stop",
+        //"on-scroll-up": "$HOME/.config/waybar/scripts/waybar-mpris-custom.sh --next",
+        //"on-scroll-down": "$HOME/.config/waybar/scripts/waybar-mpris-custom.sh --prev",
+        "on-click": "$HOME/.config/waybar/scripts/waybar-mpris-custom.sh --click-toggle",
+        "on-click-right": "$HOME/.config/waybar/scripts/waybar-mpris-custom.sh --key-stop",
+        "on-scroll-up": "$HOME/.config/waybar/scripts/waybar-mpris-custom.sh --next",
+        "on-scroll-down": "$HOME/.config/waybar/scripts/waybar-mpris-custom.sh --prev",
+        "tooltip": false
     },
 //    "mpris": {
 //	"format": " {status_icon} {dynamic}",
@@ -191,7 +225,7 @@
 //		"stopped": ""
 //	},
 //	"dynamic-order": ["title", "artist"],
-//	"ignored-players": ["firefox"]
+//        "ignored-players": ["firefox"]
 //    },
     "idle_inhibitor": {
         "format": "{icon}",

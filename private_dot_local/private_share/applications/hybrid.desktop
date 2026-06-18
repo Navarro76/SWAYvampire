@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Hybrid (AppImage)
+GenericName=Convertidor de Video (Frontend Qt)
+Comment=Frontend avanzado para herramientas de codificación de audio y video
+Exec="/mnt/Nueva/Applications/AppImage/Video/Hybrid-2026.03.21.1-x86_64.AppImage" %f
+Icon=/mnt/Nueva/Applications/AppImage/Iconos/applications-multimedia.svg
+Terminal=false
+Type=Application
+Categories=AudioVideo;Video;AudioVideoEditing;
+MimeType=video/mp4;video/x-matroska;video/x-msvideo;video/quicktime;video/webm;

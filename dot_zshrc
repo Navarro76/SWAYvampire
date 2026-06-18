@@ -111,3 +111,6 @@ fi
 export PATH="$HOME/.cargo/bin:$PATH"
 
 
+
+# Created by `pipx` on 2026-05-18 15:40:15
+export PATH="$PATH:/home/alex/.local/bin"

@@ -3,13 +3,14 @@
   "buildDate": "2026-02-21T09:24:13.050Z",
   "app": {
     "openFiles": [
+      "/mnt/Nueva/Guias/markdown/aplicaciones/AppImage.md",
       "/mnt/Navarro/VIDEOS/RECETAS DE COCINA/BIRRIA TATEMADA/Birria-chida.md"
     ],
     "openWorkspaces": [
       "/home/alex/Zettlr Tutorial"
     ]
   },
-  "openDirectory": "/mnt/Navarro/VIDEOS/RECETAS DE COCINA/BIRRIA TATEMADA",
+  "openDirectory": "/home/alex/Zettlr Tutorial",
   "dialogPaths": {
     "askFileDialog": "",
     "askDirDialog": "",

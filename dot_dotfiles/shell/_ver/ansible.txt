@@ -70,3 +70,37 @@ Debemos estar situados en `/home/ansible/ansible-project/ansible-vampire`
 
 `ansible-playbook -i inventory/hosts.ini playbook.yml --tags "podman_rootless"`  Solo tareas podman_rootless
 `ansible-playbook -i inventory/hosts.ini playbook.yml --tags "zellij"`           Solo tareas zellij
+
+# ALIAS
+
+Función base para navegar por los roles de Vampire:
+
+_av_cd() { cd "/home/ansible/ansible-project/ansible-vampire/roles/$1/$2" 2>/dev/null || 
+cd "/home/ansible/ansible-project/ansible-vampire/roles/$1/"; }
+
+ansible-env   source ~/venvs/ansible-env/bin/activate
+arun          ansible-playbook -i /home/ansible/ansible-project/ansible-vampire/inventory/hosts.ini 
+              /home/ansible/ansible-project/ansible-vampire/playbook.yml --tags
+ad            cd /home/ansible/ansible-project/ansible-vampire
+aco           cd /home/ansible/ansible-project/ansible-vampire/roles/common
+ade           cd /home/ansible/ansible-project/ansible-vampire/roles/desktop
+ate           cd /home/ansible/ansible-project/ansible-vampire/roles/terminal
+amu           cd /home/ansible/ansible-project/ansible-vampire/roles/multimedia
+are           cd /home/ansible/ansible-project/ansible-vampire/roles/resources
+asc           cd /home/ansible/ansible-project/ansible-vampire/roles/scripts
+ach           cd /home/ansible/ansible-project/ansible-vampire/roles/chezmoi
+aap           cd /home/ansible/ansible-project/ansible-vampire/roles/applications
+afl           cd /home/ansible/ansible-project/ansible-vampire/roles/flatpak
+adp           cd /home/ansible/ansible-project/ansible-vampire/roles/development
+
+Usos:
+
+arun common
+arun subtitles
+aap tasts       cd /home/ansible/ansible-project/ansible-vampire/roles/applications/tasks
+
+# FIN
+
+Nada por aquí amigo
+
+#

@@ -23,6 +23,8 @@ x-scheme-handler/tg=userapp-Telegram Desktop-E2LNN3.desktop;org.telegram.desktop
 audio/mpeg=puddletag.desktop;deadbeef.desktop;
 text/markdown=geany.desktop;
 audio/aac=deadbeef.desktop;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=onlyoffice.desktop;
+audio/x-ms-wma=deadbeef.desktop;
 
 [Default Applications]
 video/x-matroska=smplayer.desktop
@@ -48,3 +50,4 @@ x-scheme-handler/koodo-reader=koodo-reader.desktop
 audio/mpeg=deadbeef.desktop
 text/markdown=geany.desktop
 audio/aac=deadbeef.desktop
+audio/x-ms-wma=deadbeef.desktop
