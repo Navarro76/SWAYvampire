@@ -122,15 +122,29 @@ Deberías ver algo como esto:
     gitea	http://192.168.1.5:3000/alex/ansible-vampire.git (push)
     origin	https://github.com/Navarro76/ansible-vampire.git (fetch)
     origin	https://github.com/Navarro76/ansible-vampire.git (push)
-    
+
 `git push -u origin ansible-real13-sway`   Sube la rama a Github y crea un vínculo a origin
-`git push`                                 Sube a GitHub porque es el que tiene el vínculo.
 `git push gitea ansible-real13-sway`       Sube a Gitea pero no crea ningún vínculo a gitea.
 
 **Notas:** 
 - Una rama local solo puede tener un destino predeterminado (un `-u` "upstream") a la vez.
 - El "Vínculo" es Local: Recuerda que ese -u (upstream) se guarda en la configuración de tu carpeta .git local. 
   No afecta en nada a lo que otros vean en GitHub o Gitea, solo cambia cómo se comporta tu terminal.
+
+`git push`                                 Sube a GitHub porque es el que tiene el vínculo. 
+
+**Gestion de Dotfiles SWAYvampire**
+
+`git remote add gitea git remote add gitea http://192.168.1.5:3000/alex/SWAYvampire.git`
+
+`git remote -v`
+    gitea	http://192.168.1.5:3000/alex/SWAYvampire.git (fetch)
+    gitea	http://192.168.1.5:3000/alex/SWAYvampire.git (push)
+    origin	https://github.com/Navarro76/SWAYvampire.git (fetch)
+    origin	https://github.com/Navarro76/SWAYvampire.git (push)
+
+`git push origin main`
+`git push gitea main`
 
 # AVANZADO
 

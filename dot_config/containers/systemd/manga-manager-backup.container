@@ -1,0 +1,26 @@
+[Unit]
+Description=Manga Manager UI (Quadlet Oficial)
+After=network-online.target
+
+[Container]
+Image=docker.io/thepromidius/manga-manager:latest
+ContainerName=manga-manager
+
+PublishPort=3080:3000
+
+# ELIMINAMOS LA LÍNEA DE USERNS PARA QUE LINUXSERVER MANEJE LOS PERMISOS
+
+Volume=/mnt/Datos/MANGAS:/manga:rw
+Volume=/mnt/Nueva/Podman/manga-manager/config:/config:Z
+Volume=/mnt/Nueva/Podman/manga-manager/covers:/covers:Z
+
+Environment=PUID=1000
+Environment=PGID=1000
+Environment=TITLE="Manga Manager"
+Environment=TZ=America/Mexico_City
+Environment=KEYBOARD=es-latam-qwerty
+Environment=UMASK=022
+Environment=SUBFOLDER=/
+
+[Install]
+WantedBy=default.target

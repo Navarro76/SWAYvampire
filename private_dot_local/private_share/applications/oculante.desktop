@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Oculante
+Comment=Fast image viewer written in Rust
+Exec=/mnt/Nueva/Applications/ln/oculante %f
+Icon=image-viewer
+Terminal=false
+Categories=Graphics;Viewer;
+MimeType=image/bmp;image/gif;image/jpeg;image/png;image/tiff;image/webp;image/x-tga;

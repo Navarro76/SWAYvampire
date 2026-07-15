@@ -1,0 +1,23 @@
+[Unit]
+Description=KOMF - Comic/Manga Metadata Fetcher
+After=network-online.target
+
+[Container]
+Image=docker.io/sndxr/komf:latest
+ContainerName=komf
+
+# Exposición de puertos
+PublishPort=8085:8085
+
+# Volúmenes obligatorios
+Volume=/mnt/Nueva/Podman/komf/config:/config:Z
+Volume=/mnt/Datos/MANGAS:/mangas:rw
+
+# Forzamos las opciones de optimización de memoria de Java directamente
+Environment=TZ=America/Mexico_City JAVA_TOOL_OPTIONS=-XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -XX:ShenandoahGuaranteedGCInterval=3600000 -XX:TrimNativeHeapInterval=3600000
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=ComicTagger
+Comment=Editor de metadatos para archivos CBZ/CBR
+Exec=env QT_QPA_PLATFORM=wayland /mnt/Nueva/Applications/ln/ComicTagger
+Icon=/mnt/Nueva/Applications/ln/Iconos/ComicTagger.png
+Terminal=false
+Type=Application
+Categories=Utility;Multimedia;

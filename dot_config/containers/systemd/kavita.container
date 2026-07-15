@@ -1,0 +1,16 @@
+[Unit]
+Description=Servidor de Lectura Kavita (Quadlet)
+After=network-online.target
+
+[Container]
+Image=docker.io/jvmilazz0/kavita:latest
+ContainerName=kavita
+
+PublishPort=5000:5000
+UserNS=keep-id:uid=1000,gid=1000
+Volume=/mnt/Nueva/Podman/kavita/config:/kavita/config:Z
+Volume=/mnt/Datos/MANGAS:/mangas:ro
+Environment=TZ=America/Mexico_City
+
+[Install]
+WantedBy=default.target

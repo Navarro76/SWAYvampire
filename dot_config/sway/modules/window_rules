@@ -4,6 +4,9 @@ for_window [app_id="foot"] border radius 30px
 for_window [app_id="kitty"] border pixel 0
 for_window [app_id="kitty"] border radius 30px
 
+for_window [app_id="com.mitchellh.ghostty"] border pixel 1
+for_window [app_id="com.mitchellh.ghostty"] border radius 30px
+
 for_window [app_id="firefox"] border pixel 0
 for_window [app_id="geany"] border pixel 0
 for_window [app_id="pcmanfm"] border pixel 0
@@ -34,6 +37,7 @@ for_window [app_id="net.lutris.Lutris"] border pixel 0
 for_window [app_id="feishin"] border pixel 0
 for_window [app_id="marktext"] border pixel 0
 for_window [app_id="electron-backend"] border pixel 0
+for_window [app_id="virt-manager"] border pixel 0
 
 for_window [class="marktext"] border none
 for_window [class="smplayer"] border none
@@ -49,6 +53,11 @@ for_window [class="Pcmanfm"] border none
 for_window [class="TeraBox"] border none
 for_window [class="Deadbeef"] border none
 for_window [class="deemix-gui"] border none
+for_window [class="Supersonic"] border none
+# for_window [class="Hypnotix"] floating enable, resize set 960 600
+for_window [class="Hypnotix"] border none
+# Regla para Hypnotix en Sway
+# for_window [class="Hypnotix"] floating enable, resize set 1024 600, move position center
 
 # swaymsg -t get_tree | grep -i app_id -A3
 # swaymsg -t get_tree | grep -i jdownloader -A5

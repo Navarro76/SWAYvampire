@@ -1,0 +1,15 @@
+[Unit]
+Description=Servidor Gitea (Quadlet)
+After=network-online.target
+
+[Container]
+Image=docker.io/gitea/gitea:latest
+ContainerName=gitea
+PublishPort=3000:3000
+PublishPort=2222:22
+Volume=/mnt/Nueva/Podman/gitea/data:/data:Z
+Environment=USER_UID=1000 USER_GID=1000 GITEA__database__DB_TYPE=sqlite3 TZ=America/Mexico_City
+
+[Install]
+# Esto hace que se inicie al arrancar el sistema
+WantedBy=default.target

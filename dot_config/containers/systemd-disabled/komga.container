@@ -1,0 +1,18 @@
+[Unit]
+Description=Servidor Komga (Quadlet)
+After=network-online.target
+
+[Container]
+Image=docker.io/gotson/komga:latest
+ContainerName=komga
+
+# Mapeo idéntico: del 25600 del host al 25600 interno de la aplicación
+PublishPort=25600:25600
+
+UserNS=keep-id:uid=1000,gid=1000
+Volume=/mnt/Nueva/Podman/komga/config:/config:Z
+Volume=/mnt/Datos/MANGAS:/data:ro
+Environment=TZ=America/Mexico_City
+
+[Install]
+WantedBy=default.target

@@ -4,14 +4,14 @@
 #       VARIABLES
 #######################
 
-part1="/dev/disk/by-id/ata-WDC_WD10JPVX-00JC3T0_WD-WXG1A178NNDL-part2"
-part2="/dev/disk/by-id/ata-WDC_WD20EZAZ-00GGJB0_WD-WXR1AC822LC5-part1"
-part3="/dev/disk/by-id/ata-ST4000DM004-2CV104_ZTT0R6BZ-part2"
-part4="/dev/disk/by-id/ata-WDC_WD10EZEX-00WN4A0_WD-WCC6Y3SYY5AK-part4"
+part1="/dev/disk/by-id/ata-WDC_WD20EZAZ-00GGJB0_WD-WXR1AC822LC5-part1"
+part2="/dev/disk/by-id/ata-ST4000DM004-2CV104_ZTT0R6BZ-part2"
+part3="/dev/disk/by-id/ata-WDC_WD10JPVX-00JC3T0_WD-WXG1A178NNDL-part1"
+part4="/dev/disk/by-id/ata-WDC_WD10EZEX-00WN4A0_WD-WCC6Y3SYY5AK-part6"
 
-mnt1="/mnt/Archivos"
-mnt2="/mnt/Datos"
-mnt3="/mnt/Navarro"
+mnt1="/mnt/Datos"
+mnt2="/mnt/Navarro"
+mnt3="/mnt/Archivos"
 mnt4="/mnt/Nueva"
 
 ###################
@@ -50,25 +50,26 @@ done
 ####################################
 
 # Montar particiones NTFS con permisos específicos
-log "Montando partición 1 (Archivos)..."
+log "Montando partición 1 (Datos)..."
 if mount -t ntfs-3g -o defaults,uid=1000,gid=1000,umask=0002,permissions "$part1" "$mnt1" 2>> "$LOG_FILE"; then
-    log "✓ Partición 1 (Archivos) montada correctamente"
+    log "✓ Partición 1 (Datos) montada correctamente"
 else
-    log "✗ Error al montar Partición 1 (Archivos)"
+    log "✗ Error al montar Partición 1 (Datos)"
 fi
 
-log "Montando partición 2 (Datos)..."
+log "Montando partición 2 (Navarro)..."
 if mount -t ntfs-3g -o defaults,uid=1000,gid=1000,umask=0002,permissions "$part2" "$mnt2" 2>> "$LOG_FILE"; then
-    log "✓ Partición 2 (Datos) montada correctamente"
+    log "✓ Partición 2 (Navarro) montada correctamente"
 else
-    log "✗ Error al montar Partición 2 (Datos)"
+    log "✗ Error al montar Partición 2 (Navarro)"
 fi
 
-log "Montando partición 3 (Navarro)..."
-if mount -t ntfs-3g -o defaults,uid=1000,gid=1000,umask=0002,permissions "$part3" "$mnt3" 2>> "$LOG_FILE"; then
-    log "✓ Partición 3 (Navarro) montada correctamente"
+# Montar particiones XFS
+log "Montando partición 3 (Archivos)..."
+if mount -t xfs -o defaults "$part3" "$mnt3" 2>> "$LOG_FILE"; then
+    log "✓ Partición 3 (Archivos) montada correctamente"
 else
-    log "✗ Error al montar Partición 3 (Navarro)"
+    log "✗ Error al montar Partición 3 (Archivos)"
 fi
 
 log "Montando partición 4 (Nueva)..."

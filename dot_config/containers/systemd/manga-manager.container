@@ -1,0 +1,27 @@
+[Unit]
+Description=Manga Manager UI (GlassedSilver GHCR)
+After=network-online.target
+
+[Container]
+# Usamos la ruta exacta del GHCR con la etiqueta master
+Image=ghcr.io/glassedsilver/manga-manager-dockerized:master
+ContainerName=manga-manager
+
+# Mantenemos el puerto libre para evitar choque con Gitea
+PublishPort=3080:3000
+
+# Tus rutas reales mapeadas correctamente
+Volume=/mnt/Datos/MANGAS:/manga:rw
+Volume=/mnt/Nueva/Podman/manga-manager/config:/config:Z
+Volume=/mnt/Nueva/Podman/manga-manager/covers:/covers:Z
+
+Environment=PUID=1000
+Environment=PGID=1000
+Environment=TITLE="Manga Manager"
+Environment=TZ=America/Mexico_City
+Environment=KEYBOARD=es-latam-qwerty
+Environment=UMASK=022
+Environment=SUBFOLDER=/
+
+[Install]
+WantedBy=default.target

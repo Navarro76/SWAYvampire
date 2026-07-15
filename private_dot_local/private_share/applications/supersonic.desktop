@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Supersonic [AppImage]
+GenericName=Subsonic Music Client
+Comment=Cliente ligero de música para Gonic/Navidrome escrito en Go
+Exec=/mnt/Nueva/Applications/ln/supersonic
+Icon=/mnt/Nueva/Applications/ln/Iconos/supersonic.png
+Terminal=false
+Categories=AudioVideo;Audio;Player;
+Keywords=Music;Player;Subsonic;Gonic;Navidrome;
+StartupWMClass=supersonic

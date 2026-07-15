@@ -2,7 +2,7 @@
 Type=Application
 Name=TV-Lite
 Comment=Reproductor de televisión IPTV nativo
-Exec=/usr/local/bin/tv-lite
+Exec=env GDK_BACKEND=x11 VLC_VIDEO_OUTPUT=x11 /usr/local/bin/tv-lite
 Icon=video-television
 Terminal=false
 Categories=AudioVideo;Video;Player;TV;

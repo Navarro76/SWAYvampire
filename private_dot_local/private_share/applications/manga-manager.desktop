@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Manga Manager
+Comment=Gestor de metadatos para Manga (ThePromidius)
+Exec=/mnt/Nueva/Applications/ln/MangaManager --enable-features=UseOzonePlatform --ozone-platform=wayland
+Icon=/mnt/Nueva/Applications/ln/Iconos/Manga-Manager.png
+Terminal=false
+Type=Application
+Categories=Utility;Multimedia;

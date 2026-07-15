@@ -12,7 +12,8 @@ exec mako
 exec waybar
 
 # Tiling inteligente
-exec autotiling --splitwidth 0.9
+# exec autotiling --splitwidth 0.9
+# autotiling cambia automáticamente la orientación de la división de la ventana en sway e i3.
 
 # Polkit
 exec /usr/libexec/polkit-mate-authentication-agent-1

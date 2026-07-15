@@ -1,0 +1,43 @@
+[Unit]
+Description=Servidor Navidrome (Quadlet)
+After=network-online.target
+# Forzamos al servicio generado a esperar que los montajes físicos estén listos
+Requires=mnt-Nueva.mount mnt-Datos.mount mnt-Navarro.mount
+After=mnt-Nueva.mount mnt-Datos.mount mnt-Navarro.mount
+
+[X-Container]
+# Esta es la forma correcta para que el generador inyecte la directiva en el .service real
+TimeoutStartSec=300
+
+[Container]
+Image=docker.io/deluan/navidrome:latest
+ContainerName=navidrome
+PublishPort=4533:4533
+Volume=/mnt/Datos/MUSIC:/music:ro
+Volume=/mnt/Navarro/MUSIC:/music2:ro
+Volume=/mnt/Nueva/Podman/navidrome/data:/data:U
+Environment=ND_SCANSCHEDULE=1h ND_LOGLEVEL=info ND_SESSIONTIMEOUT=24h ND_BASEURL="" ND_ENABLEVFSWATCHER=true ND_ALBUMIDSTRATEGY=folder
+
+[Install]
+WantedBy=default.target
+
+
+#[Unit]
+#Description=Servidor Navidrome (Quadlet)
+#After=network-online.target
+
+#[X-Container]
+# Esta es la forma correcta para que el generador inyecte la directiva en el .service real
+#TimeoutStartSec=300
+
+#[Container]
+#Image=docker.io/deluan/navidrome:latest
+#ContainerName=navidrome
+#PublishPort=4533:4533
+#Volume=/mnt/Datos/MUSIC:/music:ro
+#Volume=/mnt/Navarro/MUSIC:/music2:ro
+#Volume=/mnt/Nueva/Podman/navidrome/data:/data:U
+#Environment=ND_SCANSCHEDULE=1h ND_LOGLEVEL=info ND_SESSIONTIMEOUT=24h ND_BASEURL="" ND_ENABLEVFSWATCHER=true ND_ALBUMIDSTRATEGY=folder
+
+#[Install]
+#WantedBy=default.target

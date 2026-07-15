@@ -250,3 +250,51 @@ $ sudo systemctl enable mount-and-start-jellyfin.service
 ```bash
 $ sudo reboot
 ```
+
+# Modificación de Gemini (2026) - No probado
+
+## El peligro de usar disable ahí
+
+Tu lógica para el servidor es impecable: creaste un servicio `oneshot` (`mount-and-start-jellyfin.service`) que asegura que los discos `/mnt/disk1` y `/mnt/disk2` estén montados antes de lanzar `docker compose up`. Esto evita que Jellyfin cree carpetas vacías en la raíz si los discos fallan al montar.
+
+**¡Ojo!*+ Si en ese servidor ejecutas `sudo systemctl disable docker.service`, vas a romper el script.
+
+## Optimizar el servicio de tu servidor (Sin deshabilitar Docker)
+
+En lugar de usar `disable`, la forma nativa de resolver esto en systemd para tu servidor es obligar a Docker a esperar a tu script. Modifica tu `/etc/systemd/system/mount-and-start-jellyfin.service` agregando estas dependencias:
+
+```bash
+[Unit]
+Description=Montar discos e iniciar Jellyfin
+After=local-fs.target
+# Avisa a systemd que Docker depende de que este script termine con éxito
+Before=docker.service 
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/mount_media_disks.sh
+TimeoutSec=0
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Y luego, editas la configuración de Docker en el servidor para que espere a tu servicio:
+
+```bash
+sudo systemctl edit docker.service
+```
+
+Te abrirá un archivo vacío, agrega esto, guarda y sal:
+
+```bash
+[Unit]
+After=mount-and-start-jellyfin.service
+Requires=mount-and-start-jellyfin.service
+```
+
+Con esto, en el servidor Docker arrancará en el boot, pero `systemd` congelará su inicio estrictamente hasta que tu script verifique que los discos XFS están listos.
+
+
+

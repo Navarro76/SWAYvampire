@@ -4,7 +4,8 @@
 
 # Start a terminal
 bindsym $mod+Shift+Return exec $term
-bindcode $mod+36 exec kitty
+#bindcode $mod+36 exec kitty
+bindcode $mod+36 exec ghostty
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -227,6 +228,9 @@ bindsym $mod+Shift+i exec LIBVA_DRIVER_NAME=radeonsi /mnt/Nueva/Applications/ln/
 # Abrir Free Download Manager - Super + Shift + d
 bindsym $mod+Shift+d exec /mnt/Nueva/Applications/ln/FDM %u
 
+# Abrir Supersonic - Super + Shift + s
+bindsym $mod+Shift+s exec /mnt/Nueva/Applications/ln/supersonic
+
 ########################################
 ### LANZAR SCRIPTS
 ########################################
@@ -234,6 +238,8 @@ bindsym $mod+Shift+d exec /mnt/Nueva/Applications/ln/FDM %u
 # Backup de KeePassXC - Super + Alt + b
 bindsym $mod+$alt+b exec /mnt/Nueva/Guias/scripts/backups/backup_kdbx.sh
 
+# Checar salud de NVME - Super + Shift + s
+# bindsym $mod+Shift+s exec ~/.local/bin/check-ssd.sh
 
 ########################################
 ### OTRAS TECLAS
@@ -245,3 +251,22 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
 # Special key to take a screenshot with grim
 bindsym Print exec grim
+
+
+########################################
+### MOUSE
+########################################
+
+# Capturar el clic de la rueda del mouse Delux en cualquier parte de la pantalla y anularlo
+#bindsym --whole-window --input-device=30fa:1440:INSTANT_USB_GAMING_MOUSE button2 nop
+
+# Por si los eventos entran por el subdispositivo que simula ser teclado
+#bindsym --whole-window --input-device=30fa:1440:INSTANT_USB_GAMING_MOUSE__Keyboard button2 nop
+
+# Indicarle a Sway que capture el botón 2 del ratón Delux y no haga nada (nop)
+#bindsym --input-device=30fa:1440:INSTANT_USB_GAMING_MOUSE button2 nop
+#bindsym --input-device=30fa:1440:INSTANT_USB_GAMING_MOUSE__Keyboard button2 nop
+
+# Desactivar el pegado accidental anulando el clic de la rueda del ratón en las ventanas
+#bindsym --whole-window button2 nop
+
