@@ -1,6 +1,9 @@
 [Unit]
-Description=Montar discos
-After=multi-user.target
+Description=Montar discos locales masivos en paralelo
+DefaultDependencies=no
+After=local-fs.target var.mount
+Before=basic.target multi-user.target umount.target
+Conflicts=umount.target
 
 [Service]
 Type=oneshot
@@ -8,4 +11,19 @@ ExecStart=/usr/local/bin/mount-disks.sh
 RemainAfterExit=yes
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=local-fs.target
+
+
+#[Unit]
+#Description=Montar discos
+#After=multi-user.target
+#Conflicts=umount.target
+#Before=umount.target
+
+#[Service]
+#Type=oneshot
+#ExecStart=/usr/local/bin/mount-disks.sh
+#RemainAfterExit=yes
+
+#[Install]
+#WantedBy=multi-user.target
